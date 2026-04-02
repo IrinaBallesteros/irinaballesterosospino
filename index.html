@@ -3,271 +3,1105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Irina Ballesteros | Consultoría y Transformación Digital</title>
-  
+  <title>Irina Ballesteros | Arquitectura de Procesos & Cloud</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root {
+      --ink: #0a0f1e;
+      --ink2: #1c2440;
+      --slate: #3d4b6b;
+      --muted: #8492ae;
+      --line: rgba(255,255,255,0.08);
+      --line-light: rgba(10,15,30,0.08);
+      --accent: #4f7cff;
+      --accent2: #ff6b35;
+      --gold: #f5c842;
+      --surface: #f4f6fb;
+      --white: #ffffff;
+      --card-bg: rgba(255,255,255,0.04);
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--ink);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── TYPOGRAPHY ─── */
+    .display { font-family: 'Syne', sans-serif; font-weight: 800; }
+    .heading  { font-family: 'Syne', sans-serif; font-weight: 700; }
+
+    /* ─── HEADER ─── */
+    header {
+      position: fixed; top: 0; left: 0; width: 100%;
+      padding: 20px 6%;
+      display: flex; justify-content: space-between; align-items: center;
+      z-index: 1000;
+      transition: all 0.4s ease;
+    }
+    header.scrolled {
+      background: rgba(10,15,30,0.92);
+      backdrop-filter: blur(16px);
+      padding: 14px 6%;
+      border-bottom: 1px solid var(--line);
+    }
+    .logo-mark {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      color: var(--white);
+    }
+    .logo-mark span { color: var(--accent); }
+
+    nav { display: flex; gap: 36px; align-items: center; }
+    nav a {
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.3px;
+      transition: color 0.25s;
+    }
+    nav a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--accent) !important;
+      color: var(--white) !important;
+      padding: 9px 20px;
+      border-radius: 8px;
+      font-size: 0.8rem !important;
+    }
+    .nav-cta:hover { background: #3a68e8 !important; }
+
+    .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.3rem; cursor: pointer; }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 120px 6% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(79,124,255,0.12) 0%, transparent 65%),
+                  radial-gradient(ellipse 50% 40% at 20% 80%, rgba(245,200,66,0.07) 0%, transparent 60%);
+    }
+
+    .hero-grid-lines {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 760px;
+    }
+
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.72rem; font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.1s forwards;
+    }
+    .hero-tag::before {
+      content: '';
+      display: inline-block; width: 24px; height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-h1 {
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.25s forwards;
+    }
+    .hero-h1 em {
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(79,124,255,0.7);
+    }
+    .hero-h1 .accent-word { color: var(--accent); }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 44px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.4s forwards;
+    }
+
+    .hero-actions {
+      display: flex; gap: 16px; align-items: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.55s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--accent);
+      color: var(--white);
+      padding: 15px 32px;
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .btn-primary:hover { background: #3a68e8; transform: translateY(-2px); }
+    .btn-primary .arrow { transition: transform 0.2s; }
+    .btn-primary:hover .arrow { transform: translateX(4px); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 400;
+      text-decoration: none;
+      transition: color 0.2s;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 2px;
+    }
+    .btn-ghost:hover { color: var(--white); border-color: var(--white); }
+
+    .hero-stat-row { display: none; }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 100px 6%; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .section-label::before {
+      content: '';
+      display: block; width: 20px; height: 1px;
+      background: var(--accent);
+    }
+
+    /* ─── NORMADB ─── */
+    #normadb {
+      background: var(--ink2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .normadb-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    #normadb h2 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+    #normadb h2 span { color: var(--accent); }
+
+    #normadb .norma-sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.8;
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+
+    .norma-metrics {
+      display: flex; gap: 0;
+      margin-bottom: 40px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .norma-metric {
+      flex: 1;
+      padding: 20px 18px;
+      text-align: center;
+      border-right: 1px solid var(--line);
+    }
+    .norma-metric:last-child { border-right: none; }
+    .norma-metric strong {
+      display: block;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--gold);
+    }
+    .norma-metric span {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.3px;
+    }
+
+    .norma-features {
+      list-style: none;
+      margin-bottom: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .norma-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.8);
+    }
+    .norma-features li i {
+      color: #4ade80;
+      font-size: 0.8rem;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .btn-norma {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gold);
+      color: var(--ink);
+      padding: 15px 32px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .btn-norma:hover { transform: translateY(-2px); background: #f0bc28; }
+
+    /* Normadb visual side */
+    .normadb-visual {
+      position: relative;
+    }
+    .normadb-mockup {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .normadb-mockup::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+    }
+    .mock-topbar {
+      display: flex; align-items: center; gap: 6px;
+      margin-bottom: 20px;
+    }
+    .mock-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .mock-dot.red { background: #ff5f57; }
+    .mock-dot.yellow { background: #febc2e; }
+    .mock-dot.green { background: #28c840; }
+    .mock-title {
+      margin-left: 8px;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+    }
+
+    .mock-upload-zone {
+      border: 1.5px dashed rgba(79,124,255,0.4);
+      border-radius: 12px;
+      padding: 28px;
+      text-align: center;
+      margin-bottom: 20px;
+      background: rgba(79,124,255,0.04);
+    }
+    .mock-upload-icon {
+      font-size: 1.6rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .mock-upload-text {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .mock-upload-text strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .mock-formats {
+      display: flex; gap: 6px; justify-content: center;
+      margin-top: 12px;
+    }
+    .mock-format-tag {
+      font-size: 0.65rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      letter-spacing: 0.5px;
+    }
+
+    .mock-result-rows {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .mock-row {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      font-size: 0.78rem;
+    }
+    .mock-status { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .mock-status.ok { background: #4ade80; }
+    .mock-status.warn { background: var(--gold); }
+    .mock-status.err { background: #f87171; }
+    .mock-row-label { flex: 1; color: rgba(255,255,255,0.7); }
+    .mock-row-count {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    /* ─── SERVICIOS ─── */
+    #servicios { background: var(--ink); }
+
+    #servicios .section-intro {
+      max-width: 600px;
+      margin-bottom: 60px;
+    }
+    #servicios h2 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    #servicios .sub {
+      color: rgba(255,255,255,0.55);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.75;
+    }
+
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .servicio-card {
+      padding: 40px 36px;
+      background: rgba(255,255,255,0.02);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.3s;
+      border-right: 1px solid var(--line);
+    }
+    .servicio-card:last-child { border-right: none; }
+    .servicio-card:hover { background: rgba(255,255,255,0.04); }
+
+    .servicio-card.featured {
+      background: rgba(79,124,255,0.07);
+    }
+    .servicio-card.featured:hover {
+      background: rgba(79,124,255,0.11);
+    }
+    .servicio-card.featured::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--accent);
+    }
+
+    .card-level {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      width: fit-content;
+    }
+    .card-level.free { background: rgba(74,222,128,0.1); color: #4ade80; }
+    .card-level.paid { background: rgba(79,124,255,0.12); color: var(--accent); }
+    .card-level.consult { background: rgba(245,200,66,0.1); color: var(--gold); }
+
+    .card-icon-num {
+      position: absolute;
+      top: 36px; right: 36px;
+      font-family: 'Syne', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+    }
+
+    .servicio-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .servicio-card p {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.75;
+      flex: 1;
+      margin-bottom: 32px;
+    }
+
+    .card-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--white);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      padding-bottom: 3px;
+      transition: all 0.2s;
+      width: fit-content;
+    }
+    .card-cta:hover { border-color: var(--white); gap: 12px; }
+    .card-cta.accent { color: var(--accent); border-color: rgba(79,124,255,0.3); }
+    .card-cta.accent:hover { border-color: var(--accent); }
+
+    /* ─── CORPORATIVO ─── */
+    #corporativo {
+      background: var(--ink2);
+      border-top: 1px solid var(--line);
+    }
+
+    .corp-inner {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 80px;
+      align-items: center;
+    }
+
+    #corporativo h2 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+    #corporativo h2 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    #corporativo .corp-desc {
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      max-width: 480px;
+    }
+    #corporativo .corp-note {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+      font-style: italic;
+    }
+
+    .corp-pillars {
+      display: flex; flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .pillar {
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--line);
+      display: flex; gap: 16px; align-items: flex-start;
+      transition: background 0.2s;
+    }
+    .pillar:last-child { border-bottom: none; }
+    .pillar:hover { background: rgba(255,255,255,0.03); }
+    .pillar-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      width: 22px;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .pillar-content strong {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .pillar-content span {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 400;
+    }
+
+    .corp-cta-wrap { margin-top: 36px; }
+    .btn-corp {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent;
+      color: var(--white);
+      padding: 14px 30px;
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.25s;
+    }
+    .btn-corp:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.5);
+      transform: translateY(-2px);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #060a14;
+      border-top: 1px solid var(--line);
+      padding: 48px 6%;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .footer-left p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.25);
+      margin-top: 6px;
+    }
+    .footer-left p strong { color: rgba(255,255,255,0.5); }
+    .footer-socials {
+      display: flex; gap: 12px;
+    }
+    .footer-socials a {
+      width: 38px; height: 38px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .footer-socials a:hover {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* ─── MODAL ─── */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(6,10,20,0.9);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: #111828;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 44px;
+      max-width: 660px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      position: relative;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) transparent;
+    }
+    .modal-box::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+      border-radius: 20px 20px 0 0;
+    }
+    .modal-close {
+      position: sticky; float: right; top: 0;
+      background: none; border: none;
+      color: var(--muted); font-size: 1.5rem;
+      cursor: pointer; transition: color 0.2s;
+      margin: -8px -8px 0 0;
+    }
+    .modal-close:hover { color: var(--white); }
+    #modalBody h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    #modalBody .modal-subtitle {
+      color: var(--accent);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+    #modalBody .modal-intro {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-style: italic;
+      border-left: 2px solid var(--accent);
+      padding-left: 16px;
+      margin-bottom: 28px;
+      line-height: 1.7;
+    }
+    #modalBody h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 28px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    #modalBody ul { list-style: none; }
+    #modalBody ul li {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.75);
+      padding: 8px 0 8px 20px;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+    #modalBody ul li::before {
+      content: '→';
+      position: absolute; left: 0;
+      color: var(--accent);
+    }
+    #modalBody ul li:last-child { border-bottom: none; }
+    #modalBody .modal-ideal {
+      background: rgba(79,124,255,0.07);
+      border: 1px solid rgba(79,124,255,0.2);
+      border-radius: 10px;
+      padding: 16px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 24px 0;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeLeft {
+      from { opacity: 0; transform: translateX(24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .normadb-grid { grid-template-columns: 1fr; gap: 48px; }
+      .corp-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-stat-row { display: none; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 80px 5%; }
+      header { padding: 16px 5%; }
+      .servicios-grid { grid-template-columns: 1fr; border-radius: 16px; }
+      .servicio-card { border-right: none; border-bottom: 1px solid var(--line); }
+      .servicio-card:last-child { border-bottom: none; }
+      nav { display: none; }
+      nav.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed; inset: 0;
+        background: var(--ink);
+        align-items: center; justify-content: center;
+        gap: 32px;
+        z-index: 999;
+      }
+      nav.open a { font-size: 1.2rem; }
+      .menu-toggle { display: block; position: relative; z-index: 1001; }
+      .hero-h1 { font-size: 2.4rem; }
+      .norma-metrics { flex-wrap: wrap; }
+      .norma-metric { min-width: 100px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
-
 <body>
-  <header>
-    <div class="logo anim-logo">Irina Ballesteros Ospino</div>
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
-    <nav>
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#normadb">NORMADB AI</a></li>
-        <li><a href="#puerta-entrada">Servicios</a></li>
-        <li><a href="#corporativo">Corporativo</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <section class="hero" id="inicio">
-    <div class="hero-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
+<!-- HEADER -->
+<header id="site-header">
+  <div class="logo-mark">Irina <span>Ballesteros</span></div>
+  <nav id="site-nav">
+    <a href="#hero">Inicio</a>
+    <a href="#normadb">NormaDB AI</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#corporativo">Corporativo</a>
+    <a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" class="nav-cta">Agendar llamada</a>
+  </nav>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Menú">
+    <i class="fas fa-bars" id="menu-icon"></i>
+  </button>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+
+  <div class="hero-inner">
+    <p class="hero-tag">Arquitectura de Procesos & Cloud — Cartagena, Colombia</p>
+
+    <h1 class="hero-h1 display">
+      Tu empresa crece.<br>
+      ¿Tus procesos <em>también</em>?
+    </h1>
+
+    <p class="hero-sub">
+      Diseño sistemas que ordenan tu operación, protegen tus datos y preparan tu empresa para escalar sin fricción.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#servicios" class="btn-primary">
+        Ver servicios <span class="arrow">→</span>
+      </a>
+      <a href="#normadb" class="btn-ghost">
+        Probar NormaDB AI gratis →
+      </a>
     </div>
-  <div class="hero-content" data-aos="fade-up">
-
-   <span class="hero-tag">Arquitectura Operativa & Estrategia Cloud</span>
-
-  <h1>Sistemas que escalan.<br>
-  <span>Operaciones que funcionan.</span></h1>
-
-  <h3 class="hero-subtitle">
-  Diseño arquitecturas de procesos y gobierno de datos para empresas que buscan orden, trazabilidad y crecimiento real.
-  </h3>
-
-  <p>
-  Elimino la fricción operativa y guío a tu equipo en la adopción de soluciones Cloud, transformando el caos en una ventaja competitiva basada en datos confiables.
-  </p>
-
-  <div class="hero-benefits">
-    <span>✔ Procesos escalables</span>
-    <span>✔ Datos bajo control</span>
-    <span>✔ Talento capacitado</span>
   </div>
 
-    <div class="hero-btns">
-      <a href="#puerta-entrada" class="btn-main">Explorar servicios</a>
-      <a href="#normadb" class="btn-sub">Descubrir NormaDB AI</a>
-    </div>
 
-  </div>
-  </section>
-     
-  <section id="normadb" class="membresia-destacada">
-    <div class="container-grid" data-aos="zoom-in">
-      <div class="text-content">
-        <span class="badge">Plataforma SaaS de Gobernanza de Datos</span>
-        <h2>NormaDB_AI: Motor Inteligente de Integridad y Control de Datos</h2>
-        <p>Automatiza la validación estructural, normalización y detección inteligente de errores 
-        en tus bases de datos mediante un sistema de análisis en múltiples capas. 
-        Diseñado para empresas que necesitan información confiable antes de tomar decisiones estratégicas.</p>
-        
-        <div class="ai-metrics">
-          <div class="metric-item"><strong>3</strong><span>Capas de Control</span></div>
-          <div class="metric-item"><strong>IA</strong><span>Detección Inteligente</span></div>
-          <div class="metric-item"><strong>24/7</strong><span>Procesamiento</span></div>
+</section>
+
+<!-- NORMADB -->
+<section id="normadb">
+  <div class="normadb-grid">
+    <div class="normadb-content">
+      <p class="section-label">Herramienta gratuita</p>
+
+      <h2 class="heading">
+        Sube tu archivo.<br>
+        <span>Sabes en segundos</span> si tus datos son confiables.
+      </h2>
+
+      <p class="norma-sub">
+        NormaDB AI analiza bases de datos en CSV, Excel, JSON y YAML. Detecta errores estructurales, valores incoherentes y formatos incorrectos antes de que afecten tus decisiones.
+      </p>
+
+      <div class="norma-metrics">
+        <div class="norma-metric">
+          <strong>3</strong>
+          <span>Capas de control</span>
         </div>
-
-        <ul class="features-list">
-          <li><i class="fas fa-check-circle"></i> Validación automática de integridad estructural (CSV, Excel, JSON, YAML).</li>
-          <li><i class="fas fa-check-circle"></i> Normalización avanzada de formatos críticos (IDs, fechas, emails).</li>
-          <li><i class="fas fa-check-circle"></i> Detección inteligente de inconsistencias mediante IA.</li>
-          <li><i class="fas fa-check-circle"></i> Generación de reportes ejecutivos de calidad y riesgos de datos.</li>
-          <li><i class="fas fa-check-circle"></i> Próximamente: aplicación de reglas de negocio específicas por sector.</li>
-      </ul>
-        <a href="https://normadbai-irinaballesterosospino.streamlit.app/" target="_blank" class="boton-cyber">
-            Ejecutar Diagnóstico Gratuito →
-        </a>
-      </div>
-      <div class="image-content">
-        <div class="glass-frame">
-          <img src="images/Norma.png" alt="Interface NormaDB_AI" class="img-float">
+        <div class="norma-metric">
+          <strong>IA</strong>
+          <span>Detección inteligente</span>
+        </div>
+        <div class="norma-metric">
+          <strong>24/7</strong>
+          <span>Procesamiento</span>
         </div>
       </div>
+
+      <ul class="norma-features">
+        <li><i class="fas fa-check-circle"></i> Validación automática de integridad estructural</li>
+        <li><i class="fas fa-check-circle"></i> Normalización de IDs, fechas, emails y formatos críticos</li>
+        <li><i class="fas fa-check-circle"></i> Detección de inconsistencias mediante IA</li>
+        <li><i class="fas fa-check-circle"></i> Reporte ejecutivo de calidad y riesgos de datos</li>
+      </ul>
+
+      <a href="https://normadbai-irinaballesterosospino.streamlit.app/" target="_blank" class="btn-norma">
+        Ejecutar diagnóstico gratuito →
+      </a>
     </div>
-  </section>
 
-  <section id="puerta-entrada" class="servicios-entrada">
-    <div class="section-header" data-aos="fade-up">
-        <h2 class="section-title">Servicios de Diagnóstico</h2>
-        <p class="section-subtitle">La forma más efectiva de comenzar es comprender cómo fluyen los procesos, los datos y las decisiones dentro de tu organización.</p>
-    </div>
+    <div class="normadb-visual">
+      <div class="normadb-mockup">
+        <div class="mock-topbar">
+          <div class="mock-dot red"></div>
+          <div class="mock-dot yellow"></div>
+          <div class="mock-dot green"></div>
+          <span class="mock-title">NormaDB_AI · Análisis en curso</span>
+        </div>
 
-    <div class="servicios-grid">
-     <article class="servicio-card destacado-blue" data-aos="fade-up">
-       <div class="card-icon"><i class="fas fa-database"></i></div>
-       <h3>Calidad de Datos</h3>
-      <p>Auditoría profunda de archivos y bases de datos. Detectamos inconsistencias y riesgos críticos para garantizar que tus decisiones de negocio sean precisas y confiables.</p>  
-      <a href="https://normadbai-irinaballesterosospino.streamlit.app/" target="_blank" class="btn-cta-outline" style="text-decoration: none; display: inline-block;">
-       Realizar Auditoría Gratis</a>
-    </article>
+        <div class="mock-upload-zone">
+          <div class="mock-upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+          <div class="mock-upload-text">
+            <strong>ventas_q4_2025.csv</strong><br>
+            Analizando 12,340 registros...
+          </div>
+          <div class="mock-formats">
+            <span class="mock-format-tag">CSV</span>
+            <span class="mock-format-tag">XLSX</span>
+            <span class="mock-format-tag">JSON</span>
+            <span class="mock-format-tag">YAML</span>
+          </div>
+        </div>
 
-     <article class="servicio-card destacado-blue featured-card" data-aos="fade-up" data-aos-delay="100">
-     <div class="card-icon"><i class="fas fa-rocket"></i></div>
-      <h3>Madurez Digital</h3>
-     <p>Evaluación estratégica de tus procesos y herramientas actuales. Definimos el roadmap exacto para pasar del caos operativo a una automatización eficiente y escalable.</p>
-  
-    <a href="diagnostico.html" class="btn-cta-outline" style="text-decoration: none; display: inline-block; text-align: center;">
-    Realizar Test de Madurez
-    </a>
-    </article>
-
-   <article class="servicio-card destacado-blue" data-aos="fade-up" data-aos-delay="200">
-  <div class="card-icon"><i class="fas fa-shield-alt"></i></div> 
-  <h3>Arquitectura y Optimización de Procesos</h3>
-  <p>Rediseño estructural de tus flujos de trabajo. Eliminamos cuellos de botella y estandarizamos la operación para garantizar trazabilidad, eficiencia y preparación para el entorno Cloud.</p>
-  
-  <div class="card-actions">
-    <button class="btn-cta-outline" onclick="openServiceDetail(1)">
-      Evaluar si mi empresa necesita esta Auditoría
-    </button>
-    <a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" class="btn-wa-link">
-      <i class="fab fa-whatsapp"></i> Agendar diagnóstico estratégico
-    </a>
-  </div>
-</article>
-    </div>
-  </section>
-
-   <section id="corporativo" class="section-corp">
-  <div class="corp-banner" data-aos="flip-up">
-    <div class="corp-info">
-      <h2>Arquitectura Operativa y Transformación Corporativa</h2>
-      <p>Elevamos el rendimiento de tu empresa mediante la integración de procesos, tecnología Cloud y el desarrollo de tu equipo humano.</p>
-      
-      <div class="servicios-detalle">
-        <p><strong>1. Optimización Integral:</strong> Acompañamiento mensual para rediseñar flujos, automatizar tareas y garantizar la eficiencia en la nube.</p>
-        <p><strong>2. Formación en Talento Digital:</strong> Capacitaciones personalizadas para que tu equipo domine las nuevas metodologías y herramientas de trabajo.</p>
-        <p><strong>3. Gestión del Cambio:</strong> Mentoría estratégica para líderes, asegurando que la tecnología no solo se instale, sino que se adopte culturalmente.</p>
+        <div class="mock-result-rows">
+          <div class="mock-row">
+            <div class="mock-status ok"></div>
+            <span class="mock-row-label">Integridad estructural</span>
+            <span class="mock-row-count">100% ✓</span>
+          </div>
+          <div class="mock-row">
+            <div class="mock-status warn"></div>
+            <span class="mock-row-label">Formatos de fecha inconsistentes</span>
+            <span class="mock-row-count">234 filas</span>
+          </div>
+          <div class="mock-row">
+            <div class="mock-status err"></div>
+            <span class="mock-row-label">IDs duplicados detectados</span>
+            <span class="mock-row-count">47 registros</span>
+          </div>
+          <div class="mock-row">
+            <div class="mock-status ok"></div>
+            <span class="mock-row-label">Emails válidos</span>
+            <span class="mock-row-count">98.7% ✓</span>
+          </div>
+        </div>
       </div>
-      <p class="small"><em>*Alta personalización: Iniciamos con una sesión de diagnóstico para validar el plan de acción.</em></p>
-    </div>
-    <div class="corp-cta">
-      <a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" class="btn-main">Agendar Llamada Estratégica</a>
     </div>
   </div>
 </section>
 
-  <footer class="main-footer">
-    <div class="footer-grid">
-     <p>© 2026 <strong>Irina Ballesteros</strong> | Arquitectura Operativa & Estrategia Cloud</p>
-      <div class="footer-socials">
-        <a href="https://www.linkedin.com/in/irina-ballesteros"><i class="fab fa-linkedin"></i></a>
-        <a href="https://wa.me/message/C5ZES66757IMA1"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.tiktok.com/@irinaballesterosospino"><i class="fab fa-tiktok"></i></a>
-      </div>
-    </div>
-  </footer>
-
-  <div id="serviceModal" class="modal-overlay" onclick="closeModal()">
-    <div class="modal-content" onclick="event.stopPropagation()">
-      <span class="close-modal" onclick="closeModal()">&times;</span>
-      <div id="modalBody"></div>
-    </div>
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="section-intro">
+    <p class="section-label">Servicios</p>
+    <h2 class="heading">
+      La forma más efectiva de comenzar es entender cómo fluye tu operación.
+    </h2>
+    <p class="sub">Tres puntos de entrada según el estado de tu empresa. Elige el que corresponde a tu momento.</p>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
+  <div class="servicios-grid">
 
+    <!-- Servicio 1 -->
+    <article class="servicio-card">
+      <span class="card-level free">Gratis · Disponible ahora</span>
+      <span class="card-icon-num">01</span>
+      <h3 class="heading">¿Tus datos son confiables?</h3>
+      <p>Audita cualquier archivo en segundos. Identifica inconsistencias antes de tomar decisiones con información incorrecta.</p>
+      <a href="https://normadbai-irinaballesterosospino.streamlit.app/" target="_blank" class="card-cta accent">
+        Auditar mi archivo gratis →
+      </a>
+    </article>
 
-    const serviceDetails = {
-      1: {
-        title: "Diagnóstico de Arquitectura y Eficiencia Operativa",
-        subtitle: "¿Tu operación es un activo que te permite escalar o un cuello de botella que te detiene?",
-        intro: `Diseño arquitecturas operativas robustas. Mi objetivo es transformar tu operación en un sistema escalable, trazable y listo para la nube. No solo corrijo procesos; construyo la base sobre la cual tu empresa podrá automatizar sin riesgos.`,
-        decisionTriggers: [
-          "Caos operativo: Lo que dice tu manual no coincide con la realidad del día a día.",
-          "Dependencia humana: El conocimiento vital reside en la memoria de pocos y no en procesos estructurados.",
-          "Fugas invisibles: Detectas ineficiencias, duplicidad de tareas o información poco confiable.",
-          "Preparación para el crecimiento: Necesitas estandarizar antes de migrar a la nube o automatizar flujos."
-        ],
-        scope: [
-          "Arquitectura de Procesos: Mapeo de flujos críticos y detección de cuellos de botella.",
-          "Integridad y Trazabilidad: Validación de cómo fluye la información en tus sistemas (y dónde se pierde).",
-          "Preparación Cloud: Evaluación técnica para asegurar que tus procesos sean aptos para automatización.",
-          "Optimización de Recursos: Identificación de tareas manuales que restan valor al negocio."
-        ],
-        deliverables: [
-          "<strong>Mapa de Arquitectura Operativa: Visualización de procesos actuales y puntos de mejora.",
-          "<strong>Informe de Brechas (Gap Analysis): Hallazgos claros entre tu estado actual y tu meta de escalabilidad.",
-          "<strong>Roadmap de Transformación: Hoja de ruta priorizada para estandarizar y digitalizar tu operación."
-        ],
-        idealFor: `Diseñado para líderes que entienden que no se puede digitalizar el caos. Primero ordenamos, luego escalamos.`,
-        cta: `<a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" class="btn-main">Agendar sesión de Diagnóstico</a>`
-      }
-     
-    };
+    <!-- Servicio 2 destacado -->
+    <article class="servicio-card featured">
+      <span class="card-level paid">Diagnóstico · 10 minutos</span>
+      <span class="card-icon-num">02</span>
+      <h3 class="heading">¿Qué tan lista está tu empresa para crecer?</h3>
+      <p>Evaluación de procesos y herramientas actuales. Obtienes un roadmap concreto, no una lista de recomendaciones genéricas.</p>
+      <a href="diagnostico.html" class="card-cta">
+        Hacer el test ahora →
+      </a>
+    </article>
 
-    function openServiceDetail(id) {
-      const service = serviceDetails[id];
-      const modalBody = document.getElementById('modalBody');
-      const modal = document.getElementById('serviceModal');
+    <!-- Servicio 3 -->
+    <article class="servicio-card">
+      <span class="card-level consult">Consultoría · Agendar sesión</span>
+      <span class="card-icon-num">03</span>
+      <h3 class="heading">Rediseña cómo opera tu empresa.</h3>
+      <p>Mapeamos tus flujos reales, eliminamos cuellos de botella y preparamos tu operación para automatización o migración Cloud.</p>
+      <a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" class="card-cta">
+        Agendar diagnóstico estratégico →
+      </a>
+    </article>
 
-      if (service) {
+  </div>
+</section>
 
-        modalBody.innerHTML = `
-          <h2 style="color:#0f172a; margin-bottom:10px;">${service.title}</h2>
-          <p style="color:#2563eb; font-weight:600; margin-bottom:15px;">${service.subtitle}</p>
-          <p style="font-style:italic; color:#64748b; margin-bottom:20px; border-left:3px solid #fdbb2d; padding-left:15px;">${service.intro}</p>
-          
-          <h4 style="margin-top:20px;">¿Cuándo necesitas este Diagnóstico?</h4>
-          <ul style="list-style:none; padding:10px 0;">
-            ${service.decisionTriggers.map(t => `<li style="margin-bottom:8px;">✔ ${t}</li>`).join('')}
-          </ul>
+<!-- CORPORATIVO -->
+<section id="corporativo">
+  <div class="corp-inner">
+    <div class="corp-left">
+      <p class="section-label">Transformación corporativa</p>
+      <h2 class="heading">
+        Para empresas que ya decidieron <em>transformarse.</em>
+      </h2>
+      <p class="corp-desc">
+        Acompañamiento mensual en Cloud, automatización de procesos y formación de equipos. No instalamos tecnología — nos aseguramos de que tu equipo la use.
+      </p>
+      <p class="corp-note">* Iniciamos con una sesión de diagnóstico. Sin compromisos previos.</p>
+      <div class="corp-cta-wrap">
+        <a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" class="btn-corp">
+          <i class="fab fa-whatsapp"></i> Agendar llamada estratégica
+        </a>
+      </div>
+    </div>
 
-          <h4 style="margin-top:20px;">Alcance del Análisis</h4>
-          <ul style="padding-left:20px;">
-            ${service.scope.map(s => `<li style="margin-bottom:5px;">${s}</li>`).join('')}
-          </ul>
+    <div class="corp-pillars">
+      <div class="pillar">
+        <span class="pillar-num">01</span>
+        <div class="pillar-content">
+          <strong>Optimización integral</strong>
+          <span>Rediseño de flujos, automatización y eficiencia en la nube. Acompañamiento mensual.</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">02</span>
+        <div class="pillar-content">
+          <strong>Formación en talento digital</strong>
+          <span>Capacitaciones para que tu equipo domine las nuevas metodologías y herramientas.</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">03</span>
+        <div class="pillar-content">
+          <strong>Gestión del cambio</strong>
+          <span>Mentoría para líderes. La tecnología no solo se instala — se adopta culturalmente.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <h4 style="margin-top:20px;">Entregables Finales</h4>
-          <ul style="padding-left:20px; margin-bottom:25px;">
-            ${service.deliverables.map(d => `<li style="margin-bottom:5px;">${d}</li>`).join('')}
-          </ul>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="logo-mark" style="font-size:0.95rem;">Irina <span>Ballesteros</span></div>
+      <p>© 2026 <strong>Irina Ballesteros Ospino</strong> · Arquitectura de Procesos & Cloud</p>
+    </div>
+    <div class="footer-socials">
+      <a href="https://www.linkedin.com/in/irina-ballesteros" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.tiktok.com/@irinaballesterosospino" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    </div>
+  </div>
+</footer>
 
-          <p style="background:#f1f5f9; padding:15px; border-radius:8px; font-size:0.9rem; margin-bottom:25px;">${service.idealFor}</p>
-          
-          <div style="text-align:center;">${service.cta}</div>
-        `;
-        
-        modal.style.display = 'flex';
-      } else {
-        console.error("Servicio no encontrado para el ID:", id);
-      }
+<!-- MODAL -->
+<div class="modal-overlay" id="serviceModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+  // Header scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menu-toggle');
+  const menuIcon = document.getElementById('menu-icon');
+  const nav = document.getElementById('site-nav');
+  menuBtn.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    menuIcon.className = nav.classList.contains('open') ? 'fas fa-times' : 'fas fa-bars';
+  });
+  nav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuIcon.className = 'fas fa-bars';
+    });
+  });
+
+  // Modal
+  const serviceDetails = {
+    1: {
+      title: "Diagnóstico de Arquitectura y Eficiencia Operativa",
+      subtitle: "¿Tu operación es un activo que te permite escalar o un cuello de botella que te detiene?",
+      intro: "Diseño arquitecturas operativas robustas. Mi objetivo es transformar tu operación en un sistema escalable, trazable y listo para la nube. No solo corrijo procesos — construyo la base sobre la cual tu empresa podrá automatizar sin riesgos.",
+      decisionTriggers: [
+        "Caos operativo: Lo que dice tu manual no coincide con la realidad del día a día.",
+        "Dependencia humana: El conocimiento vital reside en la memoria de pocos y no en procesos estructurados.",
+        "Fugas invisibles: Detectas ineficiencias, duplicidad de tareas o información poco confiable.",
+        "Preparación para el crecimiento: Necesitas estandarizar antes de migrar a la nube o automatizar flujos."
+      ],
+      scope: [
+        "Mapeo de flujos críticos y detección de cuellos de botella.",
+        "Validación de cómo fluye la información en tus sistemas (y dónde se pierde).",
+        "Evaluación técnica para asegurar que tus procesos sean aptos para automatización.",
+        "Identificación de tareas manuales que restan valor al negocio."
+      ],
+      deliverables: [
+        "Mapa de Arquitectura Operativa: visualización de procesos actuales y puntos de mejora.",
+        "Informe de Brechas (Gap Analysis): hallazgos entre tu estado actual y tu meta de escalabilidad.",
+        "Roadmap de Transformación: hoja de ruta priorizada para estandarizar y digitalizar."
+      ],
+      idealFor: "Diseñado para líderes que entienden que no se puede digitalizar el caos. Primero ordenamos, luego escalamos.",
+      cta: `<a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" class="btn-primary" style="margin-top:8px;">Agendar sesión de diagnóstico →</a>`
     }
+  };
 
-    function closeModal() {
-      document.getElementById('serviceModal').style.display = 'none';
-    }
+  function openServiceDetail(id) {
+    const s = serviceDetails[id];
+    if (!s) return;
+    document.getElementById('modalBody').innerHTML = `
+      <h2>${s.title}</h2>
+      <p class="modal-subtitle">${s.subtitle}</p>
+      <p class="modal-intro">${s.intro}</p>
+      <h4>¿Cuándo necesitas este diagnóstico?</h4>
+      <ul>${s.decisionTriggers.map(t => `<li>${t}</li>`).join('')}</ul>
+      <h4>Alcance del análisis</h4>
+      <ul>${s.scope.map(s => `<li>${s}</li>`).join('')}</ul>
+      <h4>Entregables</h4>
+      <ul>${s.deliverables.map(d => `<li>${d}</li>`).join('')}</ul>
+      <div class="modal-ideal">${s.idealFor}</div>
+      <div style="text-align:center;">${s.cta}</div>
+    `;
+    document.getElementById('serviceModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
 
+  function closeModal() {
+    document.getElementById('serviceModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
 
-    window.onclick = function(event) {
-      const modal = document.getElementById('serviceModal');
-      if (event.target == modal) {
-        closeModal();
-      }
-    }
-
-    window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-        header.style.padding = '10px 8%';
-        header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
-    } else {
-        header.style.padding = '15px 8%';
-        header.style.boxShadow = 'none';
-    }
-});
-  </script>
+  document.getElementById('serviceModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+</script>
 </body>
 </html>
