@@ -5,22 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Irina Ballesteros | Arquitectura de Procesos & Cloud</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     :root {
       --ink: #0a0f1e;
-      --ink2: #1c2440;
+      --ink2: #111827;       
+      --ink3: #192033;       
       --slate: #3d4b6b;
-      --muted: #8492ae;
-      --line: rgba(255,255,255,0.08);
+      --muted: #a0aec0;     
+      --muted2: #cbd5e1;    
+      --line: rgba(255,255,255,0.09);
       --line-light: rgba(10,15,30,0.08);
       --accent: #4f7cff;
       --accent2: #ff6b35;
       --gold: #f5c842;
       --surface: #f4f6fb;
       --white: #ffffff;
-      --card-bg: rgba(255,255,255,0.04);
+      --card-bg: rgba(255,255,255,0.05);
     }
 
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -34,11 +36,12 @@
       overflow-x: hidden;
     }
 
-    /* ─── TYPOGRAPHY ─── */
+   
     .display { font-family: 'Syne', sans-serif; font-weight: 800; }
-    .heading  { font-family: 'Syne', sans-serif; font-weight: 700; }
+    
+    .heading  { font-family: 'Outfit', sans-serif; font-weight: 700; letter-spacing: -0.3px; }
 
-    /* ─── HEADER ─── */
+    
     header {
       position: fixed; top: 0; left: 0; width: 100%;
       padding: 20px 6%;
@@ -82,7 +85,7 @@
 
     .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.3rem; cursor: pointer; }
 
-    /* ─── HERO ─── */
+    
     #hero {
       min-height: 100vh;
       display: flex; align-items: center;
@@ -145,10 +148,10 @@
 
     .hero-sub {
       font-size: 1.1rem;
-      font-weight: 300;
-      color: var(--muted);
+      font-weight: 400;
+      color: var(--muted2);
       max-width: 560px;
-      line-height: 1.75;
+      line-height: 1.8;
       margin-bottom: 44px;
       opacity: 0;
       animation: fadeUp 0.7s ease 0.4s forwards;
@@ -190,7 +193,7 @@
 
     .hero-stat-row { display: none; }
 
-    /* ─── SECTION BASE ─── */
+    
     section { padding: 100px 6%; }
     .section-label {
       display: inline-flex; align-items: center; gap: 10px;
@@ -207,7 +210,7 @@
       background: var(--accent);
     }
 
-    /* ─── NORMADB ─── */
+    
     #normadb {
       background: var(--ink2);
       border-top: 1px solid var(--line);
@@ -222,17 +225,17 @@
     }
 
     #normadb h2 {
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      line-height: 1.1;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      line-height: 1.15;
       margin-bottom: 20px;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.3px;
     }
     #normadb h2 span { color: var(--accent); }
 
     #normadb .norma-sub {
-      color: rgba(255,255,255,0.65);
+      color: var(--muted2);
       font-size: 1.05rem;
       font-weight: 400;
       line-height: 1.8;
@@ -278,7 +281,7 @@
       display: flex; align-items: flex-start; gap: 10px;
       font-size: 0.95rem;
       font-weight: 400;
-      color: rgba(255,255,255,0.8);
+      color: var(--muted2);
     }
     .norma-features li i {
       color: #4ade80;
@@ -300,7 +303,7 @@
     }
     .btn-norma:hover { transform: translateY(-2px); background: #f0bc28; }
 
-    /* Normadb visual side */
+    
     .normadb-visual {
       position: relative;
     }
@@ -382,13 +385,12 @@
     .mock-status.ok { background: #4ade80; }
     .mock-status.warn { background: var(--gold); }
     .mock-status.err { background: #f87171; }
-    .mock-row-label { flex: 1; color: rgba(255,255,255,0.7); }
+    .mock-row-label { flex: 1; color: var(--muted2); font-size: 0.8rem; }
     .mock-row-count {
       font-size: 0.7rem;
       color: var(--muted);
     }
 
-    /* ─── SERVICIOS ─── */
     #servicios { background: var(--ink); }
 
     #servicios .section-intro {
@@ -396,15 +398,15 @@
       margin-bottom: 60px;
     }
     #servicios h2 {
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      line-height: 1.1;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      line-height: 1.15;
       margin-bottom: 16px;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.3px;
     }
     #servicios .sub {
-      color: rgba(255,255,255,0.55);
+      color: var(--muted2);
       font-size: 1.05rem;
       font-weight: 400;
       line-height: 1.75;
@@ -470,17 +472,18 @@
     }
 
     .servicio-card h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.25rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
       font-weight: 700;
       margin-bottom: 14px;
-      line-height: 1.2;
+      line-height: 1.25;
+      letter-spacing: -0.2px;
     }
 
     .servicio-card p {
       font-size: 0.95rem;
       font-weight: 400;
-      color: rgba(255,255,255,0.6);
+      color: var(--muted2);
       line-height: 1.75;
       flex: 1;
       margin-bottom: 32px;
@@ -501,9 +504,9 @@
     .card-cta.accent { color: var(--accent); border-color: rgba(79,124,255,0.3); }
     .card-cta.accent:hover { border-color: var(--accent); }
 
-    /* ─── CORPORATIVO ─── */
+    
     #corporativo {
-      background: var(--ink2);
+      background: var(--ink3);
       border-top: 1px solid var(--line);
     }
 
@@ -515,12 +518,12 @@
     }
 
     #corporativo h2 {
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      line-height: 1.1;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      line-height: 1.15;
       margin-bottom: 20px;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.3px;
     }
     #corporativo h2 em {
       font-style: normal;
@@ -530,14 +533,14 @@
     #corporativo .corp-desc {
       font-size: 1.05rem;
       font-weight: 400;
-      color: rgba(255,255,255,0.6);
+      color: var(--muted2);
       line-height: 1.8;
       margin-bottom: 16px;
       max-width: 480px;
     }
     #corporativo .corp-note {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.35);
+      font-size: 0.85rem;
+      color: var(--muted);
       font-style: italic;
     }
 
@@ -567,14 +570,16 @@
     }
     .pillar-content strong {
       display: block;
-      font-size: 0.92rem;
+      font-size: 0.93rem;
       font-weight: 600;
       margin-bottom: 4px;
+      color: var(--white);
     }
     .pillar-content span {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.5);
+      font-size: 0.875rem;
+      color: var(--muted2);
       font-weight: 400;
+      line-height: 1.6;
     }
 
     .corp-cta-wrap { margin-top: 36px; }
@@ -596,7 +601,7 @@
       transform: translateY(-2px);
     }
 
-    /* ─── FOOTER ─── */
+    
     footer {
       background: #060a14;
       border-top: 1px solid var(--line);
@@ -634,7 +639,7 @@
       background: rgba(255,255,255,0.04);
     }
 
-    /* ─── MODAL ─── */
+    
     .modal-overlay {
       display: none;
       position: fixed; inset: 0;
@@ -706,9 +711,9 @@
     }
     #modalBody ul { list-style: none; }
     #modalBody ul li {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.75);
-      padding: 8px 0 8px 20px;
+      font-size: 0.9rem;
+      color: var(--muted2);
+      padding: 9px 0 9px 20px;
       border-bottom: 1px solid var(--line);
       position: relative;
     }
@@ -728,7 +733,7 @@
       margin: 24px 0;
     }
 
-    /* ─── ANIMATIONS ─── */
+    
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -738,7 +743,7 @@
       to   { opacity: 1; transform: translateX(0); }
     }
 
-    /* ─── RESPONSIVE ─── */
+    
     @media (max-width: 1024px) {
       .normadb-grid { grid-template-columns: 1fr; gap: 48px; }
       .corp-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -771,7 +776,7 @@
 </head>
 <body>
 
-<!-- HEADER -->
+
 <header id="site-header">
   <div class="logo-mark">Irina <span>Ballesteros</span></div>
   <nav id="site-nav">
@@ -786,7 +791,7 @@
   </button>
 </header>
 
-<!-- HERO -->
+
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid-lines"></div>
@@ -816,7 +821,7 @@
 
 </section>
 
-<!-- NORMADB -->
+
 <section id="normadb">
   <div class="normadb-grid">
     <div class="normadb-content">
@@ -908,7 +913,7 @@
   </div>
 </section>
 
-<!-- SERVICIOS -->
+
 <section id="servicios">
   <div class="section-intro">
     <p class="section-label">Servicios</p>
@@ -920,7 +925,7 @@
 
   <div class="servicios-grid">
 
-    <!-- Servicio 1 -->
+
     <article class="servicio-card">
       <span class="card-level free">Gratis · Disponible ahora</span>
       <span class="card-icon-num">01</span>
@@ -931,7 +936,7 @@
       </a>
     </article>
 
-    <!-- Servicio 2 destacado -->
+
     <article class="servicio-card featured">
       <span class="card-level paid">Diagnóstico · 10 minutos</span>
       <span class="card-icon-num">02</span>
@@ -942,7 +947,7 @@
       </a>
     </article>
 
-    <!-- Servicio 3 -->
+
     <article class="servicio-card">
       <span class="card-level consult">Consultoría · Agendar sesión</span>
       <span class="card-icon-num">03</span>
@@ -956,7 +961,7 @@
   </div>
 </section>
 
-<!-- CORPORATIVO -->
+
 <section id="corporativo">
   <div class="corp-inner">
     <div class="corp-left">
@@ -1001,7 +1006,7 @@
   </div>
 </section>
 
-<!-- FOOTER -->
+
 <footer>
   <div class="footer-inner">
     <div class="footer-left">
@@ -1016,7 +1021,7 @@
   </div>
 </footer>
 
-<!-- MODAL -->
+
 <div class="modal-overlay" id="serviceModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()">×</button>
@@ -1025,13 +1030,13 @@
 </div>
 
 <script>
-  // Header scroll
+
   const header = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 40);
   });
 
-  // Mobile menu
+
   const menuBtn = document.getElementById('menu-toggle');
   const menuIcon = document.getElementById('menu-icon');
   const nav = document.getElementById('site-nav');
@@ -1046,7 +1051,7 @@
     });
   });
 
-  // Modal
+
   const serviceDetails = {
     1: {
       title: "Diagnóstico de Arquitectura y Eficiencia Operativa",
