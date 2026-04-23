@@ -2,181 +2,554 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Diagnóstico Profesional | Irina Ballesteros</title>
+  <title>Diagnóstico Operativo | Irina Ballesteros</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
   <style>
-
     :root {
-      --primary: #1a2a6c;
-      --secondary: #b21f1f;
-      --accent: #fdbb2d;
-      --bg: #f8fafc;
+      --ink: #0a0f1e;
+      --ink2: #111827;
+      --slate: #3d4b6b;
+      --muted: #a0aec0;
+      --muted2: #cbd5e1;
+      --line: rgba(255,255,255,0.09);
+      --accent: #4f7cff;
+      --gold: #f5c842;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--ink);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px 20px 60px;
     }
 
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: #334155; padding: 20px; }
-    .container { max-width: 750px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-    
-    .progress-bar { height: 6px; background: #e2e8f0; border-radius: 10px; margin-bottom: 30px; overflow: hidden; }
-    .progress-fill { height: 100%; background: var(--primary); width: 0%; transition: 0.4s; }
+    .top-brand {
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .logo-mark {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--white);
+    }
+    .logo-mark span { color: var(--accent); }
+    .back-link {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--white); }
+
+    .card {
+      background: #111828;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 48px;
+      max-width: 680px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+    }
+
+    .progress-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .progress-bar {
+      flex: 1;
+      height: 4px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+    .progress-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+    }
 
     .step { display: none; }
-    .step.active { display: block; animation: fadeIn 0.4s ease; }
+    .step.active { display: block; animation: fadeUp 0.4s ease; }
 
-    h2 { color: var(--primary); margin-bottom: 25px; font-size: 1.5rem; }
-    .options-grid { display: grid; gap: 15px; }
-
-    .option-card {
-      padding: 18px; border: 2px solid #e2e8f0; border-radius: 15px; cursor: pointer;
-      display: flex; align-items: center; gap: 15px; transition: 0.2s;
-      
+    .step-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
     }
-    .option-card:hover { border-color: var(--primary); background: #f1f5f9; }
-    .option-card.selected { border-color: var(--primary); background: rgba(26, 42, 108, 0.05); font-weight: 600; }
+    .step-tag::before {
+      content: '';
+      display: inline-block;
+      width: 18px; height: 1px;
+      background: var(--accent);
+    }
+
+    h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+    .step-hint {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .options-grid { display: flex; flex-direction: column; gap: 10px; }
+    .option-card {
+      padding: 16px 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: all 0.2s;
+      background: rgba(255,255,255,0.02);
+      font-size: 0.95rem;
+      color: var(--muted2);
+    }
+    .option-card:hover {
+      border-color: var(--accent);
+      background: rgba(79,124,255,0.07);
+      color: var(--white);
+    }
+    .option-card.selected {
+      border-color: var(--accent);
+      background: rgba(79,124,255,0.1);
+      color: var(--white);
+      font-weight: 500;
+    }
     .option-card input { display: none; }
+    .option-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      color: var(--muted);
+    }
+    .option-card.selected .option-icon {
+      background: rgba(79,124,255,0.2);
+      color: var(--accent);
+    }
 
-    .input-field { width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 10px; margin-bottom: 15px; font-size: 1rem; }
-    .btn { width: 100%; padding: 16px; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-    .btn-next { background: var(--primary); color: white; margin-top: 10px; }
-    .btn-submit { background: var(--secondary); color: white; margin-top: 20px; }
+    label.field-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.3px;
+      margin-bottom: 8px;
+      margin-top: 18px;
+    }
+    label.field-label:first-child { margin-top: 0; }
+    .input-field {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      color: var(--white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .input-field:focus { border-color: var(--accent); }
+    .input-field::placeholder { color: var(--muted); }
 
-    .result-box { display: none; text-align: center; padding: 30px; border-radius: 20px; margin-top: 20px; }
-    .low { background: #fee2e2; border: 2px solid #ef4444; }
-    .med { background: #fef3c7; border: 2px solid #f59e0b; }
-    .high { background: #dcfce7; border: 2px solid #22c55e; }
+    .btn {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .btn-next {
+      background: var(--accent);
+      color: var(--white);
+    }
+    .btn-next:hover { background: #3a68e8; transform: translateY(-1px); }
+    .btn-submit {
+      background: var(--gold);
+      color: var(--ink);
+    }
+    .btn-submit:hover { background: #f0bc28; transform: translateY(-1px); }
 
-    .privacy-notice {
-    margin-top: 25px;
-    padding: 15px;
-    background: #f1f5f9;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    color: #64748b;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    cursor: pointer;
-  }
+    .privacy-box {
+      margin-top: 24px;
+      padding: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+    }
+    .privacy-box input[type="checkbox"] {
+      margin-top: 2px;
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .privacy-box span {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .privacy-box strong { color: var(--muted2); }
 
-  .privacy-notice input {
-    margin-top: 4px;
-    cursor: pointer;
-    width: 18px;
-    height: 18px;
-  }
+    /* Result */
+    .result-area { display: none; margin-top: 28px; }
+    .result-header {
+      text-align: center;
+      padding: 32px 24px 24px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+    .result-header.low { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); }
+    .result-header.med { background: rgba(245,200,66,0.08); border: 1px solid rgba(245,200,66,0.2); }
+    .result-header.high { background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.2); }
+    .result-level {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .result-level.low { color: #f87171; }
+    .result-level.med { color: var(--gold); }
+    .result-level.high { color: #4ade80; }
+    .result-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .result-desc {
+      font-size: 0.95rem;
+      color: var(--muted2);
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto;
+    }
 
-  .privacy-notice span {
-    line-height: 1.4;
-  }
+    .result-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .btn-wa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px;
+      background: #25d366;
+      color: var(--white);
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .btn-wa:hover { background: #1ebe5d; transform: translateY(-1px); }
+    .btn-norma {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px;
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid rgba(245,200,66,0.3);
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .btn-norma:hover { background: rgba(245,200,66,0.07); border-color: var(--gold); }
 
-  .privacy-link {
-    color: var(--primary);
-    text-decoration: underline;
-    font-weight: 600;
-  }
+    .sending-msg {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
 
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .spinning { animation: spin 1s linear infinite; display: inline-block; }
+
+    @media (max-width: 600px) {
+      .card { padding: 32px 24px; }
+      h2 { font-size: 1.3rem; }
+    }
   </style>
 </head>
 <body>
 
+<div class="top-brand">
+  <div class="logo-mark">Irina <span>Ballesteros</span></div>
+  <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+</div>
 
-<div class="container">
-  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<div class="card">
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <span class="progress-label" id="progressLabel">Paso 1 de 6</span>
+  </div>
 
-  <form id="diagnosticForm" action="https://formsubmit.co/ballesterosirina1@gmail.com" method="POST">
-    
-    <input type="hidden" name="_subject" value="📉 Nuevo Diagnóstico: Informe de Madurez Digital">
+  <form id="diagnosticForm" action="https://formsubmit.co/irinaballesterosospino@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="Nuevo Diagnóstico Operativo recibido">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_template" value="table">
-    
-    <input type="hidden" name="_cc" id="ccEmail"> 
-
-    <input type="hidden" name="_autoresponder" value="He recibido tu diagnóstico de madurez digital correctamente. Estoy analizando tus respuestas y pronto te contactaré para una sesión estratégica. Atte: Irina Ballesteros.">
-    
+    <input type="hidden" name="_cc" id="ccEmail">
     <input type="hidden" name="Resultado_Nivel" id="resNivel">
     <input type="hidden" name="Recomendacion" id="resRec">
 
+
     <div class="step active" id="step1">
-      <h2>Comencemos el diagnóstico</h2>
-      <label>Nombre completo</label>
-      <input type="text" name="Nombre" class="input-field" required>
-      <label>Correo electrónico (Aquí recibirás tu informe)</label>
-      <input type="email" name="email" id="clientEmail" class="input-field" required>
-      <button type="button" class="btn btn-next" onclick="nextStep(2)">Siguiente <i class="fas fa-arrow-right"></i></button>
+      <p class="step-tag">Inicio</p>
+      <h2>¿Cómo está operando tu empresa hoy?</h2>
+      <p class="step-hint">Este diagnóstico tarda menos de 3 minutos. Recibirás un resultado personalizado en pantalla y en tu correo.</p>
+      <label class="field-label">Nombre completo</label>
+      <input type="text" name="Nombre" class="input-field" placeholder="Tu nombre" required>
+      <label class="field-label">Correo electrónico</label>
+      <input type="email" name="email" id="clientEmail" class="input-field" placeholder="tu@correo.com" required>
+      <label class="field-label">Nombre de tu empresa o proyecto</label>
+      <input type="text" name="Empresa" class="input-field" placeholder="Nombre de tu empresa">
+      <button type="button" class="btn btn-next" onclick="goToStep(2)">Comenzar diagnóstico <i class="fas fa-arrow-right"></i></button>
     </div>
+
 
     <div class="step" id="step2">
-      <h2>1. ¿Qué tan documentados están tus procesos operativos?</h2>
+      <p class="step-tag">Pregunta 1 de 5</p>
+      <h2>¿Qué tan documentados están tus procesos operativos?</h2>
+      <p class="step-hint">Piensa en cómo se hacen las cosas en tu empresa día a día.</p>
       <div class="options-grid">
-        <div class="option-card" onclick="selectOption(this, 1, 3)"><i class="fas fa-times"></i> No hay nada escrito, todo es memoria. <input type="radio" name="q1" value="1"></div>
-        <div class="option-card" onclick="selectOption(this, 2, 3)"><i class="fas fa-clock"></i> Algunos procesos están en Excel/Word. <input type="radio" name="q1" value="2"></div>
-        <div class="option-card" onclick="selectOption(this, 3, 3)"><i class="fas fa-check"></i> Procesos claros y digitalizados. <input type="radio" name="q1" value="3"></div>
+        <div class="option-card" onclick="selectOption(this, 1, 3)">
+          <div class="option-icon"><i class="fas fa-times"></i></div>
+          Nada escrito — todo vive en la memoria del equipo.
+          <input type="radio" name="q1" value="1">
+        </div>
+        <div class="option-card" onclick="selectOption(this, 2, 3)">
+          <div class="option-icon"><i class="fas fa-file-alt"></i></div>
+          Algunos están en Word o Excel, pero no están actualizados.
+          <input type="radio" name="q1" value="2">
+        </div>
+        <div class="option-card" onclick="selectOption(this, 3, 3)">
+          <div class="option-icon"><i class="fas fa-check-circle"></i></div>
+          Procesos claros, documentados y conocidos por el equipo.
+          <input type="radio" name="q1" value="3">
+        </div>
       </div>
     </div>
+
 
     <div class="step" id="step3">
-      <h2>2. ¿Tus herramientas de software están integradas?</h2>
+      <p class="step-tag">Pregunta 2 de 5</p>
+      <h2>¿Cómo manejas la información y los datos de tu operación?</h2>
+      <p class="step-hint">Piensa en los datos que usas para tomar decisiones — ventas, clientes, inventario, etc.</p>
       <div class="options-grid">
-        <div class="option-card" onclick="selectOption(this, 1, 4)"><i class="fas fa-ghost"></i> Trabajamos con herramientas aisladas. <input type="radio" name="q2" value="1"></div>
-        <div class="option-card" onclick="selectOption(this, 2, 4)"><i class="fas fa-link"></i> Usamos conectores (como Zapier) a veces. <input type="radio" name="q2" value="2"></div>
-        <div class="option-card" onclick="selectOption(this, 3, 4)"><i class="fas fa-robot"></i> Todo fluye automáticamente entre sistemas. <input type="radio" name="q2" value="3"></div>
+        <div class="option-card" onclick="selectOption(this, 1, 4)">
+          <div class="option-icon"><i class="fas fa-exclamation-triangle"></i></div>
+          Hay errores frecuentes — datos duplicados, incompletos o en varios archivos.
+          <input type="radio" name="q2" value="1">
+        </div>
+        <div class="option-card" onclick="selectOption(this, 2, 4)">
+          <div class="option-icon"><i class="fas fa-database"></i></div>
+          Tenemos datos pero no siempre confiamos en ellos al 100%.
+          <input type="radio" name="q2" value="2">
+        </div>
+        <div class="option-card" onclick="selectOption(this, 3, 4)">
+          <div class="option-icon"><i class="fas fa-shield-alt"></i></div>
+          Datos limpios, estructurados y confiables para decidir.
+          <input type="radio" name="q3" value="3">
+        </div>
       </div>
     </div>
+
 
     <div class="step" id="step4">
-      <h2>3. ¿Cómo tomas decisiones estratégicas?</h2>
+      <p class="step-tag">Pregunta 3 de 5</p>
+      <h2>¿Cómo tomas decisiones estratégicas en tu empresa?</h2>
+      <p class="step-hint">Sé honesto — no hay respuesta incorrecta.</p>
       <div class="options-grid">
-        <div class="option-card" onclick="selectOption(this, 1, 5)"><i class="fas fa-brain"></i> Por intuición o experiencia previa. <input type="radio" name="q3" value="1"></div>
-        <div class="option-card" onclick="selectOption(this, 2, 5)"><i class="fas fa-chart-line"></i> Miramos reportes al final del mes. <input type="radio" name="q3" value="2"></div>
-        <div class="option-card" onclick="selectOption(this, 3, 5)"><i class="fas fa-eye"></i> Datos en tiempo real con Dashboards. <input type="radio" name="q3" value="3"></div>
+        <div class="option-card" onclick="selectOption(this, 1, 5)">
+          <div class="option-icon"><i class="fas fa-brain"></i></div>
+          Por intuición o experiencia — sin datos formales.
+          <input type="radio" name="q3" value="1">
+        </div>
+        <div class="option-card" onclick="selectOption(this, 2, 5)">
+          <div class="option-icon"><i class="fas fa-chart-bar"></i></div>
+          Revisamos reportes, pero generalmente tarde o con retraso.
+          <input type="radio" name="q3" value="2">
+        </div>
+        <div class="option-card" onclick="selectOption(this, 3, 5)">
+          <div class="option-icon"><i class="fas fa-tachometer-alt"></i></div>
+          Indicadores claros que revisamos regularmente.
+          <input type="radio" name="q3" value="3">
+        </div>
       </div>
     </div>
+
 
     <div class="step" id="step5">
-      <h2>4. ¿Cómo reacciona tu equipo al cambio tecnológico?</h2>
+      <p class="step-tag">Pregunta 4 de 5</p>
+      <h2>¿Cómo responde tu equipo cuando se introduce un cambio o nueva herramienta?</h2>
+      <p class="step-hint">Piensa en la última vez que implementaron algo nuevo.</p>
       <div class="options-grid">
-        <div class="option-card" onclick="selectOption(this, 1, 'Final')"><i class="fas fa-shield-alt"></i> Hay mucha resistencia y miedo. <input type="radio" name="q4" value="1"></div>
-        <div class="option-card" onclick="selectOption(this, 2, 'Final')"><i class="fas fa-walking"></i> Se adaptan, pero tardan mucho. <input type="radio" name="q4" value="2"></div>
-        <div class="option-card" onclick="selectOption(this, 3, 'Final')"><i class="fas fa-rocket"></i> Cultura de innovación constante. <input type="radio" name="q4" value="3"></div>
+        <div class="option-card" onclick="selectOption(this, 1, 6)">
+          <div class="option-icon"><i class="fas fa-lock"></i></div>
+          Hay resistencia — prefieren seguir como siempre.
+          <input type="radio" name="q4" value="1">
+        </div>
+        <div class="option-card" onclick="selectOption(this, 2, 6)">
+          <div class="option-icon"><i class="fas fa-walking"></i></div>
+          Se adaptan, pero necesitan mucho acompañamiento.
+          <input type="radio" name="q4" value="2">
+        </div>
+        <div class="option-card" onclick="selectOption(this, 3, 6)">
+          <div class="option-icon"><i class="fas fa-rocket"></i></div>
+          El equipo adopta cambios con facilidad y rapidez.
+          <input type="radio" name="q4" value="3">
+        </div>
       </div>
     </div>
 
-    <div class="step" id="stepFinal">
-      <h2>¡Análisis completado!</h2>
-      <p>Hemos procesado tus respuestas. Antes de ver tu resultado, confirma la aceptación de datos:</p>
-      <label class="privacy-notice">
-        <input type="checkbox" id="privacyCheck">
-        <span>
-          Acepto que mis datos sean tratados para fines de este diagnóstico y contacto profesional por parte de <strong>Irina Ballesteros</strong>. No compartiremos tu información con terceros.
-        </span>
-      </label>
 
-      <button type="button" class="btn btn-submit" onclick="validarYEnviar()">Obtener mi Resultado</button>
+    <div class="step" id="step6">
+      <p class="step-tag">Pregunta 5 de 5</p>
+      <h2>¿Cuál es tu mayor reto operativo hoy?</h2>
+      <p class="step-hint">Selecciona el que más te preocupa en este momento.</p>
+      <div class="options-grid">
+        <div class="option-card" onclick="selectOption(this, 1, 'Final')">
+          <div class="option-icon"><i class="fas fa-sitemap"></i></div>
+          Desorden en procesos — nadie sabe exactamente quién hace qué.
+          <input type="radio" name="q5" value="1">
+        </div>
+        <div class="option-card" onclick="selectOption(this, 2, 'Final')">
+          <div class="option-icon"><i class="fas fa-table"></i></div>
+          Datos poco confiables que frenan mis decisiones.
+          <input type="radio" name="q5" value="2">
+        </div>
+        <div class="option-card" onclick="selectOption(this, 3, 'Final')">
+          <div class="option-icon"><i class="fas fa-users"></i></div>
+          Mi equipo no adopta bien los cambios o metodologías nuevas.
+          <input type="radio" name="q5" value="3">
+        </div>
+        <div class="option-card" onclick="selectOption(this, 2, 'Final')">
+          <div class="option-icon"><i class="fas fa-expand-arrows-alt"></i></div>
+          Quiero escalar pero no tengo la estructura para hacerlo.
+          <input type="radio" name="q5" value="2">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="step" id="stepFinal">
+      <p class="step-tag">Último paso</p>
+      <h2>Tu diagnóstico está listo.</h2>
+      <p class="step-hint">Acepta el tratamiento de datos para ver tu resultado y recibirlo en tu correo.</p>
+      <label class="privacy-box">
+        <input type="checkbox" id="privacyCheck">
+        <span>Acepto que mis datos sean usados para este diagnóstico y para contacto profesional por parte de <strong>Irina Ballesteros</strong>. No compartiremos tu información con terceros.</span>
+      </label>
+      <button type="button" class="btn btn-submit" onclick="validarYEnviar()">
+        <i class="fas fa-chart-pie"></i> Ver mi resultado
+      </button>
     </div>
   </form>
 
-  <div id="resultArea" class="result-box"></div>
+  <div class="result-area" id="resultArea"></div>
 </div>
 
 <script>
   let currentStep = 1;
-  const totalSteps = 6;
+  const stepIds = [1, 2, 3, 4, 5, 6, 'Final'];
 
-  function nextStep(step) {
-    document.getElementById(`step${currentStep}`).classList.remove('active');
-    currentStep = step === 'Final' ? 'Final' : step;
-    document.getElementById(`step${currentStep}`).classList.add('active');
+  function goToStep(step) {
+    document.getElementById('step' + currentStep).classList.remove('active');
+    currentStep = step;
+    document.getElementById('step' + currentStep).classList.add('active');
     updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function updateProgress() {
-    const steps = [1, 2, 3, 4, 5, 'Final'];
-    const idx = steps.indexOf(currentStep);
-    const percent = (idx / (steps.length - 1)) * 100;
+    const idx = stepIds.indexOf(currentStep);
+    const percent = (idx / (stepIds.length - 1)) * 100;
     document.getElementById('progressFill').style.width = percent + '%';
+    const labels = ['Paso 1 de 6', 'Pregunta 1/5', 'Pregunta 2/5', 'Pregunta 3/5', 'Pregunta 4/5', 'Pregunta 5/5', 'Resultado'];
+    document.getElementById('progressLabel').textContent = labels[idx] || '';
   }
 
   function selectOption(card, val, next) {
@@ -184,93 +557,75 @@
     parent.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
     card.classList.add('selected');
     card.querySelector('input').checked = true;
-    setTimeout(() => nextStep(next), 400);
+    setTimeout(() => goToStep(next), 380);
   }
 
   function validarYEnviar() {
-  const form = document.getElementById('diagnosticForm');
+    const nombre = document.querySelector('input[name="Nombre"]');
+    const email = document.getElementById('clientEmail');
+    const privacy = document.getElementById('privacyCheck');
+    const qs = ['q1','q2','q3','q4','q5'].map(n => document.querySelector(`input[name="${n}"]:checked`));
 
+    if (!nombre.value.trim()) { alert('Por favor ingresa tu nombre.'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { alert('Por favor ingresa un correo válido.'); return; }
+    if (qs.some(q => !q)) { alert('Por favor responde todas las preguntas.'); return; }
+    if (!privacy.checked) { alert('Por favor acepta el tratamiento de datos.'); return; }
 
-  const nombreInput = document.querySelector('input[name="Nombre"]');
-  const emailInput = document.getElementById('clientEmail');
-  const privacyCheck = document.getElementById('privacyCheck');
-  
+    const scores = qs.map(q => parseInt(q.value));
+    const avg = scores.reduce((a,b) => a+b, 0) / scores.length;
 
-  const q1 = document.querySelector('input[name="q1"]:checked');
-  const q2 = document.querySelector('input[name="q2"]:checked');
-  const q3 = document.querySelector('input[name="q3"]:checked');
-  const q4 = document.querySelector('input[name="q4"]:checked');
+    let nivel, desc, clase, ctaExtra;
 
+    if (avg <= 1.5) {
+      nivel = 'Operación en crisis';
+      desc = 'Tu empresa opera de forma reactiva. Los procesos no están definidos, los datos no son confiables y el equipo toma decisiones sin información sólida. El primer paso es ordenar la base antes de pensar en crecer.';
+      clase = 'low';
+      ctaExtra = 'Necesitas un diagnóstico profundo de procesos. Podemos identificar los puntos críticos y construir la estructura que tu operación necesita.';
+    } else if (avg <= 2.3) {
+      nivel = 'Operación en crecimiento';
+      desc = 'Tienes una base pero con brechas importantes. Algunos procesos están definidos, pero los datos y la adopción del equipo son tus mayores retos. Es el momento ideal para estructurar antes de que el crecimiento amplifique los problemas.';
+      clase = 'med';
+      ctaExtra = 'Puedo ayudarte a cerrar esas brechas con un plan concreto de mejora de procesos y capacitación de tu equipo.';
+    } else {
+      nivel = 'Operación optimizada';
+      desc = 'Tu empresa tiene una base sólida. Los procesos están definidos, los datos son confiables y tu equipo adopta cambios bien. El siguiente paso es escalar con inteligencia y mantener la calidad operativa.';
+      clase = 'high';
+      ctaExtra = 'Podemos trabajar juntos en llevar tu operación al siguiente nivel con metodologías avanzadas y transformación digital estratégica.';
+    }
 
-  const regexNombre = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/;
-  if (!nombreInput.value.trim() || !regexNombre.test(nombreInput.value)) {
-    alert("Por favor, ingresa un nombre válido (solo letras).");
-    nombreInput.focus();
-    return;
+    document.getElementById('resNivel').value = nivel;
+    document.getElementById('resRec').value = ctaExtra;
+    document.getElementById('ccEmail').value = email.value;
+
+    const resultArea = document.getElementById('resultArea');
+    resultArea.style.display = 'block';
+    resultArea.innerHTML = `
+      <div class="result-header ${clase}">
+        <div class="result-level ${clase}">${nivel}</div>
+        <div class="result-title">Tu diagnóstico operativo</div>
+        <p class="result-desc">${desc}</p>
+      </div>
+      <p style="font-size:0.9rem;color:var(--muted2);line-height:1.7;margin-bottom:20px;padding:0 4px;">${ctaExtra}</p>
+      <div class="result-actions">
+        <a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" class="btn-wa">
+          <i class="fab fa-whatsapp"></i> Hablar con Irina sobre mis resultados
+        </a>
+        <a href="https://normadbai-irinaballesterosospino.streamlit.app/" target="_blank" class="btn-norma">
+          <i class="fas fa-database"></i> Auditar mis datos con NormaDB AI →
+        </a>
+      </div>
+      <div class="sending-msg">
+        <i class="fas fa-circle-notch spinning"></i>
+        Enviando informe a tu correo...
+      </div>
+    `;
+
+    resultArea.scrollIntoView({ behavior: 'smooth' });
+
+    setTimeout(() => {
+      document.getElementById('diagnosticForm').submit();
+    }, 2500);
   }
-
-  const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!regexEmail.test(emailInput.value)) {
-    alert("Por favor, ingresa un correo electrónico válido.");
-    emailInput.focus();
-    return;
-  }
-
-
-  if (!q1 || !q2 || !q3 || !q4) {
-    alert("Por favor, responde todas las preguntas del diagnóstico antes de continuar.");
-    return;
-  }
-
-
-  if (!privacyCheck || !privacyCheck.checked) {
-    alert("Por favor, acepta la política de tratamiento de datos.");
-    return;
-  }
-
-  
-  const score = (parseInt(q1.value) + parseInt(q2.value) + parseInt(q3.value) + parseInt(q4.value)) / 4;
-  let nivel, rec, clase;
-
-  if (score <= 1.5) {
-    nivel = "Madurez Inicial (Reactiva)";
-    rec = "Foco urgente en organizar procesos básicos.";
-    clase = "low";
-  } else if (score <= 2.5) {
-    nivel = "Madurez en Crecimiento";
-    rec = "Necesitas integrar sistemas para dejar de duplicar tareas.";
-    clase = "med";
-  } else {
-    nivel = "Madurez Optimizada";
-    rec = "Listo para automatizaciones avanzadas.";
-    clase = "high";
-  }
-
-  document.getElementById('resNivel').value = nivel;
-  document.getElementById('resRec').value = rec;
-  document.getElementById('ccEmail').value = emailInput.value; 
-
- 
-  const resultArea = document.getElementById('resultArea');
-  resultArea.style.display = "block";
-  resultArea.className = `result-box ${clase}`;
-  resultArea.innerHTML = `
-    <i class="fas fa-paper-plane"></i>
-    <h3>Tu Resultado: ${nivel}</h3>
-    <p>${rec}</p>
-    <div style="margin-top:15px; font-size: 0.9rem; opacity: 0.8;">
-      <i class="fas fa-spinner fa-spin"></i> Generando informe y enviando a tu correo...
-    </div>
-  `;
-
-  resultArea.scrollIntoView({ behavior: 'smooth' });
-
-  
-  setTimeout(() => {
-    form.submit();
-  }, 2500);
-}
 </script>
-
 </body>
 </html>

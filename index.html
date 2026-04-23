@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Irina Ballesteros | Arquitectura de Procesos & Cloud</title>
+  <title>Irina Ballesteros | Consultora en Procesos & Transformación Digital</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -24,10 +24,10 @@
       --white: #ffffff;
       --card-bg: rgba(255,255,255,0.05);
     }
-
+ 
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior: smooth; }
-
+ 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background: var(--ink);
@@ -35,12 +35,12 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
+ 
    
     .display { font-family: 'Syne', sans-serif; font-weight: 800; }
     
     .heading  { font-family: 'Outfit', sans-serif; font-weight: 700; letter-spacing: -0.3px; }
-
+ 
     
     header {
       position: fixed; top: 0; left: 0; width: 100%;
@@ -63,7 +63,7 @@
       color: var(--white);
     }
     .logo-mark span { color: var(--accent); }
-
+ 
     nav { display: flex; gap: 36px; align-items: center; }
     nav a {
       text-decoration: none;
@@ -82,9 +82,9 @@
       font-size: 0.8rem !important;
     }
     .nav-cta:hover { background: #3a68e8 !important; }
-
+ 
     .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.3rem; cursor: pointer; }
-
+ 
     
     #hero {
       min-height: 100vh;
@@ -93,13 +93,13 @@
       position: relative;
       overflow: hidden;
     }
-
+ 
     .hero-bg {
       position: absolute; inset: 0;
       background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(79,124,255,0.12) 0%, transparent 65%),
                   radial-gradient(ellipse 50% 40% at 20% 80%, rgba(245,200,66,0.07) 0%, transparent 60%);
     }
-
+ 
     .hero-grid-lines {
       position: absolute; inset: 0;
       background-image:
@@ -107,12 +107,12 @@
         linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
       background-size: 60px 60px;
     }
-
+ 
     .hero-inner {
       position: relative; z-index: 2;
       max-width: 760px;
     }
-
+ 
     .hero-tag {
       display: inline-flex; align-items: center; gap: 8px;
       font-size: 0.72rem; font-weight: 500;
@@ -128,7 +128,7 @@
       display: inline-block; width: 24px; height: 1px;
       background: var(--accent);
     }
-
+ 
     .hero-h1 {
       font-size: clamp(2.6rem, 5vw, 4.2rem);
       font-family: 'Syne', sans-serif;
@@ -145,7 +145,7 @@
       -webkit-text-stroke: 1.5px rgba(79,124,255,0.7);
     }
     .hero-h1 .accent-word { color: var(--accent); }
-
+ 
     .hero-sub {
       font-size: 1.1rem;
       font-weight: 400;
@@ -156,14 +156,14 @@
       opacity: 0;
       animation: fadeUp 0.7s ease 0.4s forwards;
     }
-
+ 
     .hero-actions {
       display: flex; gap: 16px; align-items: center;
       flex-wrap: wrap;
       opacity: 0;
       animation: fadeUp 0.7s ease 0.55s forwards;
     }
-
+ 
     .btn-primary {
       display: inline-flex; align-items: center; gap: 10px;
       background: var(--accent);
@@ -178,7 +178,7 @@
     .btn-primary:hover { background: #3a68e8; transform: translateY(-2px); }
     .btn-primary .arrow { transition: transform 0.2s; }
     .btn-primary:hover .arrow { transform: translateX(4px); }
-
+ 
     .btn-ghost {
       display: inline-flex; align-items: center; gap: 8px;
       color: var(--muted);
@@ -190,9 +190,9 @@
       padding-bottom: 2px;
     }
     .btn-ghost:hover { color: var(--white); border-color: var(--white); }
-
+ 
     .hero-stat-row { display: none; }
-
+ 
     
     section { padding: 100px 6%; }
     .section-label {
@@ -209,21 +209,21 @@
       display: block; width: 20px; height: 1px;
       background: var(--accent);
     }
-
+ 
     
     #normadb {
       background: var(--ink2);
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
-
+ 
     .normadb-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: center;
     }
-
+ 
     #normadb h2 {
       font-size: clamp(1.8rem, 3vw, 2.6rem);
       font-family: 'Outfit', sans-serif;
@@ -233,7 +233,7 @@
       letter-spacing: -0.3px;
     }
     #normadb h2 span { color: var(--accent); }
-
+ 
     #normadb .norma-sub {
       color: var(--muted2);
       font-size: 1.05rem;
@@ -242,7 +242,7 @@
       margin-bottom: 36px;
       max-width: 480px;
     }
-
+ 
     .norma-metrics {
       display: flex; gap: 0;
       margin-bottom: 40px;
@@ -269,7 +269,7 @@
       color: var(--muted);
       letter-spacing: 0.3px;
     }
-
+ 
     .norma-features {
       list-style: none;
       margin-bottom: 36px;
@@ -289,7 +289,7 @@
       margin-top: 4px;
       flex-shrink: 0;
     }
-
+ 
     .btn-norma {
       display: inline-flex; align-items: center; gap: 10px;
       background: var(--gold);
@@ -302,7 +302,7 @@
       transition: all 0.25s;
     }
     .btn-norma:hover { transform: translateY(-2px); background: #f0bc28; }
-
+ 
     
     .normadb-visual {
       position: relative;
@@ -335,7 +335,7 @@
       color: var(--muted);
       letter-spacing: 0.5px;
     }
-
+ 
     .mock-upload-zone {
       border: 1.5px dashed rgba(79,124,255,0.4);
       border-radius: 12px;
@@ -369,7 +369,7 @@
       color: var(--muted);
       letter-spacing: 0.5px;
     }
-
+ 
     .mock-result-rows {
       display: flex; flex-direction: column; gap: 8px;
     }
@@ -390,9 +390,9 @@
       font-size: 0.7rem;
       color: var(--muted);
     }
-
+ 
     #servicios { background: var(--ink); }
-
+ 
     #servicios .section-intro {
       max-width: 600px;
       margin-bottom: 60px;
@@ -411,7 +411,7 @@
       font-weight: 400;
       line-height: 1.75;
     }
-
+ 
     .servicios-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -420,7 +420,7 @@
       border-radius: 20px;
       overflow: hidden;
     }
-
+ 
     .servicio-card {
       padding: 40px 36px;
       background: rgba(255,255,255,0.02);
@@ -433,7 +433,7 @@
     }
     .servicio-card:last-child { border-right: none; }
     .servicio-card:hover { background: rgba(255,255,255,0.04); }
-
+ 
     .servicio-card.featured {
       background: rgba(79,124,255,0.07);
     }
@@ -445,7 +445,7 @@
       position: absolute; top: 0; left: 0; right: 0; height: 2px;
       background: var(--accent);
     }
-
+ 
     .card-level {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 0.68rem;
@@ -460,7 +460,7 @@
     .card-level.free { background: rgba(74,222,128,0.1); color: #4ade80; }
     .card-level.paid { background: rgba(79,124,255,0.12); color: var(--accent); }
     .card-level.consult { background: rgba(245,200,66,0.1); color: var(--gold); }
-
+ 
     .card-icon-num {
       position: absolute;
       top: 36px; right: 36px;
@@ -470,7 +470,7 @@
       color: rgba(255,255,255,0.04);
       line-height: 1;
     }
-
+ 
     .servicio-card h3 {
       font-family: 'Outfit', sans-serif;
       font-size: 1.2rem;
@@ -479,7 +479,7 @@
       line-height: 1.25;
       letter-spacing: -0.2px;
     }
-
+ 
     .servicio-card p {
       font-size: 0.95rem;
       font-weight: 400;
@@ -488,7 +488,7 @@
       flex: 1;
       margin-bottom: 32px;
     }
-
+ 
     .card-cta {
       display: inline-flex; align-items: center; gap: 8px;
       font-size: 0.82rem;
@@ -503,20 +503,20 @@
     .card-cta:hover { border-color: var(--white); gap: 12px; }
     .card-cta.accent { color: var(--accent); border-color: rgba(79,124,255,0.3); }
     .card-cta.accent:hover { border-color: var(--accent); }
-
+ 
     
     #corporativo {
       background: var(--ink3);
       border-top: 1px solid var(--line);
     }
-
+ 
     .corp-inner {
       display: grid;
       grid-template-columns: 1fr 420px;
       gap: 80px;
       align-items: center;
     }
-
+ 
     #corporativo h2 {
       font-size: clamp(1.8rem, 3vw, 2.6rem);
       font-family: 'Outfit', sans-serif;
@@ -529,7 +529,7 @@
       font-style: normal;
       color: var(--accent);
     }
-
+ 
     #corporativo .corp-desc {
       font-size: 1.05rem;
       font-weight: 400;
@@ -543,7 +543,7 @@
       color: var(--muted);
       font-style: italic;
     }
-
+ 
     .corp-pillars {
       display: flex; flex-direction: column;
       gap: 0;
@@ -581,7 +581,7 @@
       font-weight: 400;
       line-height: 1.6;
     }
-
+ 
     .corp-cta-wrap { margin-top: 36px; }
     .btn-corp {
       display: inline-flex; align-items: center; gap: 10px;
@@ -600,7 +600,7 @@
       border-color: rgba(255,255,255,0.5);
       transform: translateY(-2px);
     }
-
+ 
     
     footer {
       background: #060a14;
@@ -638,7 +638,7 @@
       border-color: rgba(255,255,255,0.3);
       background: rgba(255,255,255,0.04);
     }
-
+ 
     
     .modal-overlay {
       display: none;
@@ -732,7 +732,7 @@
       color: var(--muted);
       margin: 24px 0;
     }
-
+ 
     
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
@@ -742,7 +742,7 @@
       from { opacity: 0; transform: translateX(24px); }
       to   { opacity: 1; transform: translateX(0); }
     }
-
+ 
     
     @media (max-width: 1024px) {
       .normadb-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -775,8 +775,8 @@
   </style>
 </head>
 <body>
-
-
+ 
+ 
 <header id="site-header">
   <div class="logo-mark">Irina <span>Ballesteros</span></div>
   <nav id="site-nav">
@@ -790,24 +790,24 @@
     <i class="fas fa-bars" id="menu-icon"></i>
   </button>
 </header>
-
-
+ 
+ 
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid-lines"></div>
-
+ 
   <div class="hero-inner">
-    <p class="hero-tag">Arquitectura de Procesos & Cloud — Cartagena, Colombia</p>
-
+    <p class="hero-tag">Consultora en Procesos & Transformación Digital — Cartagena, Colombia</p>
+ 
     <h1 class="hero-h1 display">
       Tu empresa crece.<br>
       ¿Tus procesos <em>también</em>?
     </h1>
-
+ 
     <p class="hero-sub">
-      Diseño sistemas que ordenan tu operación, protegen tus datos y preparan tu empresa para escalar sin fricción.
+      Diagnostico lo que falla en tu operación, lo estructuro y capacito a tu equipo para que no vuelva a pasar. Conecto negocio, proceso y tecnología.
     </p>
-
+ 
     <div class="hero-actions">
       <a href="#servicios" class="btn-primary">
         Ver servicios <span class="arrow">→</span>
@@ -817,25 +817,25 @@
       </a>
     </div>
   </div>
-
-
+ 
+ 
 </section>
-
-
+ 
+ 
 <section id="normadb">
   <div class="normadb-grid">
     <div class="normadb-content">
       <p class="section-label">Herramienta gratuita</p>
-
+ 
       <h2 class="heading">
         Sube tu archivo.<br>
         <span>Sabes en segundos</span> si tus datos son confiables.
       </h2>
-
+ 
       <p class="norma-sub">
         NormaDB AI analiza bases de datos en CSV, Excel, JSON y YAML. Detecta errores estructurales, valores incoherentes y formatos incorrectos antes de que afecten tus decisiones.
       </p>
-
+ 
       <div class="norma-metrics">
         <div class="norma-metric">
           <strong>3</strong>
@@ -850,19 +850,19 @@
           <span>Procesamiento</span>
         </div>
       </div>
-
+ 
       <ul class="norma-features">
         <li><i class="fas fa-check-circle"></i> Validación automática de integridad estructural</li>
         <li><i class="fas fa-check-circle"></i> Normalización de IDs, fechas, emails y formatos críticos</li>
         <li><i class="fas fa-check-circle"></i> Detección de inconsistencias mediante IA</li>
         <li><i class="fas fa-check-circle"></i> Reporte ejecutivo de calidad y riesgos de datos</li>
       </ul>
-
+ 
       <a href="https://normadbai-irinaballesterosospino.streamlit.app/" target="_blank" class="btn-norma">
         Ejecutar diagnóstico gratuito →
       </a>
     </div>
-
+ 
     <div class="normadb-visual">
       <div class="normadb-mockup">
         <div class="mock-topbar">
@@ -871,7 +871,7 @@
           <div class="mock-dot green"></div>
           <span class="mock-title">NormaDB_AI · Análisis en curso</span>
         </div>
-
+ 
         <div class="mock-upload-zone">
           <div class="mock-upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
           <div class="mock-upload-text">
@@ -885,7 +885,7 @@
             <span class="mock-format-tag">YAML</span>
           </div>
         </div>
-
+ 
         <div class="mock-result-rows">
           <div class="mock-row">
             <div class="mock-status ok"></div>
@@ -912,8 +912,8 @@
     </div>
   </div>
 </section>
-
-
+ 
+ 
 <section id="servicios">
   <div class="section-intro">
     <p class="section-label">Servicios</p>
@@ -922,10 +922,10 @@
     </h2>
     <p class="sub">Tres puntos de entrada según el estado de tu empresa. Elige el que corresponde a tu momento.</p>
   </div>
-
+ 
   <div class="servicios-grid">
-
-
+ 
+ 
     <article class="servicio-card">
       <span class="card-level free">Gratis · Disponible ahora</span>
       <span class="card-icon-num">01</span>
@@ -935,8 +935,8 @@
         Auditar mi archivo gratis →
       </a>
     </article>
-
-
+ 
+ 
     <article class="servicio-card featured">
       <span class="card-level paid">Diagnóstico · 10 minutos</span>
       <span class="card-icon-num">02</span>
@@ -946,22 +946,22 @@
         Hacer el test ahora →
       </a>
     </article>
-
-
+ 
+ 
     <article class="servicio-card">
       <span class="card-level consult">Consultoría · Agendar sesión</span>
       <span class="card-icon-num">03</span>
       <h3 class="heading">Rediseña cómo opera tu empresa.</h3>
-      <p>Mapeamos tus flujos reales, eliminamos cuellos de botella y preparamos tu operación para automatización o migración Cloud.</p>
+      <p>Mapeamos tus flujos reales, eliminamos cuellos de botella y capacitamos a tu equipo para que la transformación sea sostenible — no solo instalada.</p>
       <a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" class="card-cta">
         Agendar diagnóstico estratégico →
       </a>
     </article>
-
+ 
   </div>
 </section>
-
-
+ 
+ 
 <section id="corporativo">
   <div class="corp-inner">
     <div class="corp-left">
@@ -970,7 +970,7 @@
         Para empresas que ya decidieron <em>transformarse.</em>
       </h2>
       <p class="corp-desc">
-        Acompañamiento mensual en Cloud, automatización de procesos y formación de equipos. No instalamos tecnología — nos aseguramos de que tu equipo la use.
+        Acompañamiento mensual en transformación digital, mejora de procesos y formación de equipos. No solo implementamos metodologías — nos aseguramos de que tu equipo las adopte y las sostenga.
       </p>
       <p class="corp-note">* Iniciamos con una sesión de diagnóstico. Sin compromisos previos.</p>
       <div class="corp-cta-wrap">
@@ -979,13 +979,13 @@
         </a>
       </div>
     </div>
-
+ 
     <div class="corp-pillars">
       <div class="pillar">
         <span class="pillar-num">01</span>
         <div class="pillar-content">
-          <strong>Optimización integral</strong>
-          <span>Rediseño de flujos, automatización y eficiencia en la nube. Acompañamiento mensual.</span>
+          <strong>Optimización integral de procesos</strong>
+          <span>Rediseño de flujos, eliminación de cuellos de botella y mejora continua. Acompañamiento mensual.</span>
         </div>
       </div>
       <div class="pillar">
@@ -1005,13 +1005,13 @@
     </div>
   </div>
 </section>
-
-
+ 
+ 
 <footer>
   <div class="footer-inner">
     <div class="footer-left">
       <div class="logo-mark" style="font-size:0.95rem;">Irina <span>Ballesteros</span></div>
-      <p>© 2026 <strong>Irina Ballesteros Ospino</strong> · Arquitectura de Procesos & Cloud</p>
+      <p>© 2026 <strong>Irina Ballesteros Ospino</strong> · Consultora en Procesos & Transformación Digital</p>
     </div>
     <div class="footer-socials">
       <a href="https://www.linkedin.com/in/irina-ballesteros" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -1020,23 +1020,23 @@
     </div>
   </div>
 </footer>
-
-
+ 
+ 
 <div class="modal-overlay" id="serviceModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()">×</button>
     <div id="modalBody"></div>
   </div>
 </div>
-
+ 
 <script>
-
+ 
   const header = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 40);
   });
-
-
+ 
+ 
   const menuBtn = document.getElementById('menu-toggle');
   const menuIcon = document.getElementById('menu-icon');
   const nav = document.getElementById('site-nav');
@@ -1050,8 +1050,8 @@
       menuIcon.className = 'fas fa-bars';
     });
   });
-
-
+ 
+ 
   const serviceDetails = {
     1: {
       title: "Diagnóstico de Arquitectura y Eficiencia Operativa",
@@ -1078,7 +1078,7 @@
       cta: `<a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" class="btn-primary" style="margin-top:8px;">Agendar sesión de diagnóstico →</a>`
     }
   };
-
+ 
   function openServiceDetail(id) {
     const s = serviceDetails[id];
     if (!s) return;
@@ -1098,12 +1098,12 @@
     document.getElementById('serviceModal').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
-
+ 
   function closeModal() {
     document.getElementById('serviceModal').classList.remove('open');
     document.body.style.overflow = '';
   }
-
+ 
   document.getElementById('serviceModal').addEventListener('click', function(e) {
     if (e.target === this) closeModal();
   });
