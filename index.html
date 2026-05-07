@@ -765,6 +765,7 @@
     .sobre-mi-foto-col {
       display: flex;
       flex-direction: column;
+      padding-top: 62px;
     }
  
     .foto-frame {
@@ -774,29 +775,12 @@
       aspect-ratio: 4 / 5;
       background: var(--ink2);
     }
- 
-    .foto-placeholder {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 12px;
-      background: linear-gradient(145deg, #111827 0%, #1a2540 100%);
-    }
-    .foto-placeholder i {
-      font-size: 3.5rem;
-      color: var(--slate);
-    }
-    .foto-placeholder span {
-      font-size: 0.72rem;
-      color: var(--slate);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-    }
- 
+   
+    
     .foto-frame img {
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center;
       display: block;
       transition: transform 0.6s ease;
     }
@@ -853,7 +837,7 @@
       font-size: 1rem;
       font-weight: 400;
       color: var(--muted2);
-      line-height: 1.85;
+      line-height: 1.55;
     }
     .sobre-body p strong {
       color: var(--white);
