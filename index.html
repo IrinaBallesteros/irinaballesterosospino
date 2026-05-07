@@ -250,6 +250,7 @@
       border-radius: 12px;
       overflow: hidden;
     }
+
     .norma-metric {
       flex: 1;
       padding: 20px 18px;
@@ -264,6 +265,7 @@
       font-weight: 800;
       color: var(--gold);
     }
+
     .norma-metric span {
       font-size: 0.72rem;
       color: var(--muted);
@@ -277,12 +279,14 @@
       flex-direction: column;
       gap: 10px;
     }
+
     .norma-features li {
       display: flex; align-items: flex-start; gap: 10px;
       font-size: 0.95rem;
       font-weight: 400;
       color: var(--muted2);
     }
+    
     .norma-features li i {
       color: #4ade80;
       font-size: 0.8rem;
@@ -732,7 +736,194 @@
       color: var(--muted);
       margin: 24px 0;
     }
+
+    #sobre-mi {
+      background: var(--ink);
+      border-bottom: 1px solid var(--line);
+      padding: 110px 6%;
+      position: relative;
+      overflow: hidden;
+    }
+
+     #sobre-mi::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -80px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(79,124,255,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
  
+    .sobre-mi-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 80px;
+      align-items: start;
+      position: relative; z-index: 1;
+    }
+
+    .sobre-mi-foto-col {
+      display: flex;
+      flex-direction: column;
+    }
+ 
+    .foto-frame {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      background: var(--ink2);
+    }
+ 
+    .foto-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 12px;
+      background: linear-gradient(145deg, #111827 0%, #1a2540 100%);
+    }
+    .foto-placeholder i {
+      font-size: 3.5rem;
+      color: var(--slate);
+    }
+    .foto-placeholder span {
+      font-size: 0.72rem;
+      color: var(--slate);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+ 
+    .foto-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .foto-frame:hover img { transform: scale(1.03); }
+ 
+    .foto-frame::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+    }
+
+    .sobre-mi-content {
+      padding-top: 8px;
+    }
+ 
+    .sobre-mi-content h2 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+      line-height: 1.15;
+      letter-spacing: -0.3px;
+      margin-bottom: 8px;
+    }
+    .sobre-mi-content h2 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .sobre-tagline {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--gold);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sobre-tagline::before {
+      content: '';
+      display: block;
+      width: 28px; height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .sobre-body {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 40px;
+    }
+    .sobre-body p {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--muted2);
+      line-height: 1.85;
+    }
+    .sobre-body p strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .sobre-expertise {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .expertise-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--muted2);
+      transition: all 0.2s;
+    }
+    .expertise-chip i {
+      font-size: 0.72rem;
+      color: var(--accent);
+    }
+    .expertise-chip:hover {
+      background: rgba(79,124,255,0.08);
+      border-color: rgba(79,124,255,0.3);
+      color: var(--white);
+    }
+
+    .sobre-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+      margin-top: 32px;
+      transition: gap 0.2s, color 0.2s;
+    }
+    .sobre-cta .arrow { transition: transform 0.2s; }
+    .sobre-cta:hover { color: var(--white); }
+    .sobre-cta:hover .arrow { transform: translateX(5px); }
+
+    @media (max-width: 1024px) {
+      .sobre-mi-grid {
+        grid-template-columns: 300px 1fr;
+        gap: 48px;
+      }
+    }
+    @media (max-width: 768px) {
+      .sobre-mi-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .foto-frame {
+        aspect-ratio: 1 / 1;
+        max-width: 260px;
+        margin: 0 auto;
+      }
+    }
+
     
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
@@ -781,6 +972,7 @@
   <div class="logo-mark">Irina <span>Ballesteros</span></div>
   <nav id="site-nav">
     <a href="#hero">Inicio</a>
+    <a href="#sobre-mi">Sobre mí</a>
     <a href="#normadb">NormaDB AI</a>
     <a href="#servicios">Servicios</a>
     <a href="#corporativo">Corporativo</a>
@@ -797,7 +989,7 @@
   <div class="hero-grid-lines"></div>
  
   <div class="hero-inner">
-    <p class="hero-tag">Consultora en Procesos & Transformación Digital — Cartagena, Colombia</p>
+    <p class="hero-tag">Gestión & Transformación Empresarial</p>
  
     <h1 class="hero-h1 display">
       Tu empresa crece.<br>
@@ -805,7 +997,7 @@
     </h1>
  
     <p class="hero-sub">
-      Diagnostico lo que falla en tu operación, lo estructuro y capacito a tu equipo para que no vuelva a pasar. Conecto negocio, proceso y tecnología.
+     Ayudo a empresas a ordenar sus procesos, fortalecer sus equipos y adoptar tecnología de forma práctica — para que el cambio no solo ocurra, sino que se mantenga.
     </p>
  
     <div class="hero-actions">
@@ -821,6 +1013,47 @@
  
 </section>
  
+<section id="sobre-mi">
+  <div class="sobre-mi-grid">
+ 
+    <div class="sobre-mi-foto-col">
+      <div class="foto-frame">      
+        <img src="images/irina.jpeg" alt="Irina Ballesteros Ospino">
+        </div>
+    </div>
+ 
+    <div class="sobre-mi-content">
+      <p class="section-label">Sobre mí</p>
+ 
+      <h2>Personas. Procesos.<br><em>Tecnología.</em></h2>
+ 
+      <p class="sobre-tagline">Gestión y transformación empresarial con foco en lo que realmente sostiene el cambio.</p>
+ 
+      <div class="sobre-body">
+        <p>
+          Soy Irina Ballesteros, Administradora de Empresas con <strong>más de 10 años de experiencia</strong> liderando procesos operativos en entornos de alta exigencia normativa.
+        </p>
+        <p>
+          He trabajado en estandarización de procesos bajo ISO 9001, optimización operativa, mejora continua y formación de equipos — ayudando a que los cambios no solo se implementen, sino que realmente se mantengan en el tiempo.
+        </p>
+        <p>
+          También fui tutora de Algoritmos y Programación en universidad, experiencia que reforzó una idea que hoy define mi enfoque: <strong>la tecnología solo genera valor cuando las personas logran comprenderla y adoptarla.</strong>
+        </p>
+        <p>
+          Actualmente finalizo mi Ingeniería de Software y desarrollo <strong>NormaDB AI</strong>, integrando mi experiencia en gestión empresarial con capacidades tecnológicas para calidad y gobernanza de datos.
+        </p>
+        <p>
+          Creo en una transformación digital <strong>práctica, humana y sostenible</strong> — donde personas, procesos y tecnología trabajen alineados para que las empresas crezcan con mayor claridad, eficiencia y estructura.
+        </p>
+      </div>
+ 
+      <a href="mailto:contacto@irinaballesteros.com" class="sobre-cta">
+        contacto@irinaballesteros.com <span class="arrow">→</span>
+      </a>
+    </div>
+ 
+  </div>
+</section>
  
 <section id="normadb">
   <div class="normadb-grid">
@@ -1011,7 +1244,7 @@
   <div class="footer-inner">
     <div class="footer-left">
       <div class="logo-mark" style="font-size:0.95rem;">Irina <span>Ballesteros</span></div>
-      <p>© 2026 <strong>Irina Ballesteros Ospino</strong> · Consultora en Procesos & Transformación Digital</p>
+      <p>© 2026 <strong>Irina Ballesteros Ospino</strong> · Gestión & Transformación Empresarial</p>
     </div>
     <div class="footer-socials">
       <a href="https://www.linkedin.com/in/irina-ballesteros" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
