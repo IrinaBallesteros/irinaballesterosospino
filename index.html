@@ -3,44 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Irina Ballesteros | Consultora en Procesos & Transformación Digital</title>
+  <meta name="description" content="Auditoría, calidad y gobierno de la información. Consultoría en gestión de riesgos, gobierno de datos y ciberseguridad estratégica. Administradora de Empresas e Ingeniera de Software (en curso)." />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#F7F6F2" />
+  <title>Irina Ballesteros | Auditoría, Calidad y Gobierno de la Información</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     :root {
-      --ink: #0a0f1e;
-      --ink2: #111827;       
-      --ink3: #192033;       
-      --slate: #3d4b6b;
-      --muted: #cbd5e1;       
-      --line: rgba(255,255,255,0.09);
-      --line-light: rgba(10,15,30,0.08);
-      --accent: #4f7cff;
-      --accent2: #ff6b35;
-      --gold: #f5c842;
-      --surface: #f4f6fb;
+      --ink: #10182B;
+      --ink-soft: #4B5567;
+      --muted: #6B7280;
+      --paper: #F7F6F2;
+      --paper-alt: #FFFFFF;
+      --line: rgba(16,24,43,0.10);
+      --line-strong: rgba(16,24,43,0.16);
+      --accent: #0B6B58;
+      --accent-bright: #2FBF9C;
+      --accent-soft: rgba(11,107,88,0.08);
+      --gold: #B9872F;
+      --gold-soft: rgba(185,135,47,0.12);
+      --navy: #0B1220;
+      --navy2: #080D18;
       --white: #ffffff;
-      --card-bg: rgba(255,255,255,0.05);
     }
- 
+
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior: smooth; }
- 
+
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background: var(--ink);
-      color: var(--white);
+      background: var(--paper);
+      color: var(--ink);
       line-height: 1.6;
       overflow-x: hidden;
     }
- 
-   
-    .display { font-family: 'Syne', sans-serif; font-weight: 800; }
-    
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .display { font-family: 'Fraunces', serif; font-weight: 600; font-optical-sizing: auto; }
     .heading  { font-family: 'Outfit', sans-serif; font-weight: 700; letter-spacing: -0.3px; }
- 
-    
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* HEADER */
     header {
       position: fixed; top: 0; left: 0; width: 100%;
       padding: 20px 6%;
@@ -49,30 +71,31 @@
       transition: all 0.4s ease;
     }
     header.scrolled {
-      background: rgba(10,15,30,0.92);
+      background: rgba(247,246,242,0.92);
       backdrop-filter: blur(16px);
       padding: 14px 6%;
       border-bottom: 1px solid var(--line);
+      box-shadow: 0 1px 0 rgba(16,24,43,0.03);
     }
     .logo-mark {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-      color: var(--white);
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 0.3px;
+      color: var(--ink);
     }
     .logo-mark span { color: var(--accent); }
- 
+
     nav { display: flex; gap: 36px; align-items: center; }
     nav a {
       text-decoration: none;
       font-size: 0.82rem;
       font-weight: 500;
-      color: var(--muted);
+      color: var(--ink-soft);
       letter-spacing: 0.3px;
       transition: color 0.25s;
     }
-    nav a:hover { color: var(--white); }
+    nav a:hover { color: var(--ink); }
     .nav-cta {
       background: var(--accent) !important;
       color: var(--white) !important;
@@ -80,11 +103,11 @@
       border-radius: 8px;
       font-size: 0.8rem !important;
     }
-    .nav-cta:hover { background: #3a68e8 !important; }
- 
-    .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.3rem; cursor: pointer; }
- 
-    
+    .nav-cta:hover { background: #095a4a !important; }
+
+    .menu-toggle { display: none; background: none; border: none; color: var(--ink); font-size: 1.3rem; cursor: pointer; }
+
+    /* HERO */
     #hero {
       min-height: 100vh;
       display: flex; align-items: center;
@@ -92,29 +115,52 @@
       position: relative;
       overflow: hidden;
     }
- 
+
     .hero-bg {
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(79,124,255,0.12) 0%, transparent 65%),
-                  radial-gradient(ellipse 50% 40% at 20% 80%, rgba(245,200,66,0.07) 0%, transparent 60%);
+      background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(11,107,88,0.07) 0%, transparent 65%),
+                  radial-gradient(ellipse 50% 40% at 20% 80%, rgba(185,135,47,0.06) 0%, transparent 60%);
     }
- 
+
     .hero-grid-lines {
       position: absolute; inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+        linear-gradient(rgba(16,24,43,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,24,43,0.035) 1px, transparent 1px);
       background-size: 60px 60px;
     }
- 
+
+    .hero-seal {
+      position: absolute;
+      top: -70px; right: -70px;
+      width: 440px; height: 440px;
+      border-radius: 50%;
+      border: 1px solid rgba(11,107,88,0.14);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-seal::before {
+      content: '';
+      position: absolute; inset: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(11,107,88,0.10);
+    }
+    .hero-seal::after {
+      content: '';
+      position: absolute; inset: 84px;
+      border-radius: 50%;
+      border: 1px dashed rgba(185,135,47,0.22);
+    }
+    @media (max-width: 900px) { .hero-seal { display: none; } }
+
     .hero-inner {
       position: relative; z-index: 2;
       max-width: 760px;
     }
- 
+
     .hero-tag {
       display: inline-flex; align-items: center; gap: 8px;
-      font-size: 0.72rem; font-weight: 500;
+      font-size: 0.72rem; font-weight: 600;
       color: var(--accent);
       letter-spacing: 1.8px;
       text-transform: uppercase;
@@ -122,47 +168,44 @@
       opacity: 0;
       animation: fadeUp 0.7s ease 0.1s forwards;
     }
-    .hero-tag::before {
-      content: '';
-      display: inline-block; width: 24px; height: 1px;
-      background: var(--accent);
-    }
- 
+    .hero-tag i { font-size: 0.8rem; }
+
     .hero-h1 {
       font-size: clamp(2.6rem, 5vw, 4.2rem);
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -1px;
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
       margin-bottom: 28px;
+      color: var(--ink);
       opacity: 0;
       animation: fadeUp 0.7s ease 0.25s forwards;
     }
     .hero-h1 em {
       font-style: normal;
       color: transparent;
-      -webkit-text-stroke: 1.5px rgba(79,124,255,0.7);
+      -webkit-text-stroke: 1.5px rgba(11,107,88,0.6);
     }
     .hero-h1 .accent-word { color: var(--accent); }
- 
+
     .hero-sub {
       font-size: 1.1rem;
       font-weight: 400;
-      color: var(--muted2);
+      color: var(--ink-soft);
       max-width: 560px;
       line-height: 1.8;
       margin-bottom: 44px;
       opacity: 0;
       animation: fadeUp 0.7s ease 0.4s forwards;
     }
- 
+
     .hero-actions {
       display: flex; gap: 16px; align-items: center;
       flex-wrap: wrap;
       opacity: 0;
       animation: fadeUp 0.7s ease 0.55s forwards;
     }
- 
+
     .btn-primary {
       display: inline-flex; align-items: center; gap: 10px;
       background: var(--accent);
@@ -174,55 +217,69 @@
       text-decoration: none;
       transition: all 0.25s;
     }
-    .btn-primary:hover { background: #3a68e8; transform: translateY(-2px); }
+    .btn-primary:hover { background: #095a4a; transform: translateY(-2px); }
     .btn-primary .arrow { transition: transform 0.2s; }
     .btn-primary:hover .arrow { transform: translateX(4px); }
- 
+
     .btn-ghost {
       display: inline-flex; align-items: center; gap: 8px;
-      color: var(--muted);
+      color: var(--ink-soft);
       font-size: 0.85rem;
       font-weight: 400;
       text-decoration: none;
       transition: color 0.2s;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(16,24,43,0.15);
       padding-bottom: 2px;
     }
-    .btn-ghost:hover { color: var(--white); border-color: var(--white); }
- 
-    .hero-stat-row { display: none; }
- 
-    
-    section { padding: 100px 6%; }
+    .btn-ghost:hover { color: var(--ink); border-color: var(--ink); }
+
+    .hero-stat-row {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.7s forwards;
+    }
+    .hero-stat { display: flex; flex-direction: column; gap: 4px; }
+    .hero-stat strong {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .hero-stat span { font-size: 0.78rem; color: var(--muted); max-width: 190px; line-height: 1.4; }
+    @media (max-width: 640px) { .hero-stat-row { gap: 24px; } }
+
+    /* SECTIONS */
+    section { padding: 100px 6%; position: relative; }
     .section-label {
-      display: inline-flex; align-items: center; gap: 10px;
+      display: inline-flex; align-items: center; gap: 9px;
       font-size: 0.7rem;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 20px;
     }
-    .section-label::before {
-      content: '';
-      display: block; width: 20px; height: 1px;
-      background: var(--accent);
-    }
- 
-    
+    .section-label i { font-size: 0.85rem; }
+
+    /* NORMADB */
     #normadb {
-      background: var(--ink2);
+      background: var(--paper-alt);
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
- 
+
     .normadb-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: center;
     }
- 
+
     #normadb h2 {
       font-size: clamp(1.8rem, 3vw, 2.6rem);
       font-family: 'Outfit', sans-serif;
@@ -230,18 +287,19 @@
       line-height: 1.15;
       margin-bottom: 20px;
       letter-spacing: -0.3px;
+      color: var(--ink);
     }
-    #normadb h2 span { color: var(--accent); }
- 
+    #normadb h2 span { color: var(--gold); }
+
     #normadb .norma-sub {
-      color: var(--muted2);
+      color: var(--ink-soft);
       font-size: 1.05rem;
       font-weight: 400;
       line-height: 1.8;
       margin-bottom: 36px;
       max-width: 480px;
     }
- 
+
     .norma-metrics {
       display: flex; gap: 0;
       margin-bottom: 40px;
@@ -259,9 +317,9 @@
     .norma-metric:last-child { border-right: none; }
     .norma-metric strong {
       display: block;
-      font-family: 'Syne', sans-serif;
-      font-size: 1.6rem;
-      font-weight: 800;
+      font-family: 'Fraunces', serif;
+      font-size: 1.7rem;
+      font-weight: 600;
       color: var(--gold);
     }
 
@@ -270,7 +328,7 @@
       color: var(--muted);
       letter-spacing: 0.3px;
     }
- 
+
     .norma-features {
       list-style: none;
       margin-bottom: 36px;
@@ -283,20 +341,20 @@
       display: flex; align-items: flex-start; gap: 10px;
       font-size: 0.95rem;
       font-weight: 400;
-      color: var(--muted2);
+      color: var(--ink-soft);
     }
-    
+
     .norma-features li i {
-      color: #4ade80;
+      color: var(--accent);
       font-size: 0.8rem;
       margin-top: 4px;
       flex-shrink: 0;
     }
- 
+
     .btn-norma {
       display: inline-flex; align-items: center; gap: 10px;
       background: var(--gold);
-      color: var(--ink);
+      color: var(--white);
       padding: 15px 32px;
       border-radius: 10px;
       font-weight: 700;
@@ -304,102 +362,71 @@
       text-decoration: none;
       transition: all 0.25s;
     }
-    .btn-norma:hover { transform: translateY(-2px); background: #f0bc28; }
- 
-    
-    .normadb-visual {
-      position: relative;
-    }
+    .btn-norma:hover { transform: translateY(-2px); background: #a67729; }
+
+    .normadb-visual { position: relative; }
     .normadb-mockup {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--line);
+      background: var(--navy);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 20px;
       padding: 28px;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 30px 60px rgba(16,24,43,0.18);
     }
     .normadb-mockup::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--gold));
+      background: linear-gradient(90deg, var(--accent-bright), var(--gold));
     }
-    .mock-topbar {
-      display: flex; align-items: center; gap: 6px;
-      margin-bottom: 20px;
-    }
+    .mock-topbar { display: flex; align-items: center; gap: 6px; margin-bottom: 20px; }
     .mock-dot { width: 10px; height: 10px; border-radius: 50%; }
     .mock-dot.red { background: #ff5f57; }
     .mock-dot.yellow { background: #febc2e; }
     .mock-dot.green { background: #28c840; }
-    .mock-title {
-      margin-left: 8px;
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.5px;
-    }
- 
+    .mock-title { margin-left: 8px; font-size: 0.72rem; color: rgba(255,255,255,0.5); letter-spacing: 0.5px; }
+
     .mock-upload-zone {
-      border: 1.5px dashed rgba(79,124,255,0.4);
+      border: 1.5px dashed rgba(47,191,156,0.4);
       border-radius: 12px;
       padding: 28px;
       text-align: center;
       margin-bottom: 20px;
-      background: rgba(79,124,255,0.04);
+      background: rgba(47,191,156,0.06);
     }
-    .mock-upload-icon {
-      font-size: 1.6rem;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-    .mock-upload-text {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-    .mock-upload-text strong {
-      color: var(--accent);
-      font-weight: 500;
-    }
-    .mock-formats {
-      display: flex; gap: 6px; justify-content: center;
-      margin-top: 12px;
-    }
+    .mock-upload-icon { font-size: 1.6rem; color: var(--accent-bright); margin-bottom: 8px; }
+    .mock-upload-text { font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+    .mock-upload-text strong { color: var(--accent-bright); font-weight: 500; }
+    .mock-formats { display: flex; gap: 6px; justify-content: center; margin-top: 12px; }
     .mock-format-tag {
       font-size: 0.65rem;
       padding: 3px 8px;
       border-radius: 4px;
-      border: 1px solid var(--line);
-      color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.55);
       letter-spacing: 0.5px;
     }
- 
-    .mock-result-rows {
-      display: flex; flex-direction: column; gap: 8px;
-    }
+
+    .mock-result-rows { display: flex; flex-direction: column; gap: 8px; }
     .mock-row {
       display: flex; align-items: center; gap: 10px;
       padding: 10px 12px;
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.04);
       border-radius: 8px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(255,255,255,0.08);
       font-size: 0.78rem;
     }
     .mock-status { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
     .mock-status.ok { background: #4ade80; }
     .mock-status.warn { background: var(--gold); }
     .mock-status.err { background: #f87171; }
-    .mock-row-label { flex: 1; color: var(--muted2); font-size: 0.8rem; }
-    .mock-row-count {
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
- 
-    #servicios { background: var(--ink); }
- 
-    #servicios .section-intro {
-      max-width: 600px;
-      margin-bottom: 60px;
-    }
+    .mock-row-label { flex: 1; color: rgba(255,255,255,0.65); font-size: 0.8rem; }
+    .mock-row-count { font-size: 0.7rem; color: rgba(255,255,255,0.45); }
+
+    /* SERVICIOS */
+    #servicios { background: var(--paper); }
+    #servicios .section-intro { max-width: 600px; margin-bottom: 60px; }
     #servicios h2 {
       font-size: clamp(1.8rem, 3vw, 2.6rem);
       font-family: 'Outfit', sans-serif;
@@ -407,57 +434,48 @@
       line-height: 1.15;
       margin-bottom: 16px;
       letter-spacing: -0.3px;
+      color: var(--ink);
     }
-    #servicios .sub {
-      color: var(--muted2);
-      font-size: 1.05rem;
-      font-weight: 400;
-      line-height: 1.75;
-    }
- 
+    #servicios .sub { color: var(--ink-soft); font-size: 1.05rem; font-weight: 400; line-height: 1.75; }
+
     .servicios-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2px;
-      border: 1px solid var(--line);
+      border: 1px solid var(--line-strong);
       border-radius: 20px;
       overflow: hidden;
+      background: var(--line);
     }
- 
+
     .servicio-card {
       padding: 40px 36px;
-      background: rgba(255,255,255,0.02);
+      background: var(--paper-alt);
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      border-right: 1px solid var(--line);
     }
-    .servicio-card:last-child { border-right: none; }
-    .servicio-card:hover { 
-      background: rgba(255, 255, 255, 0.08);
+    .servicio-card:hover {
+      background: var(--accent-soft);
       transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-      border-color: var(--accent);
-     }
- 
-    .servicio-card.featured {
-      background: rgba(79,124,255,0.07);
+      box-shadow: 0 20px 40px rgba(16,24,43,0.10);
+      z-index: 2;
     }
-    .servicio-card.featured:hover {
-      background: rgba(79,124,255,0.11);
-    }
+
+    .servicio-card.featured { background: var(--gold-soft); }
+    .servicio-card.featured:hover { background: rgba(185,135,47,0.18); }
     .servicio-card.featured::before {
       content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: var(--accent);
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--gold);
     }
- 
+
     .card-level {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 0.68rem;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 1.5px;
       text-transform: uppercase;
       margin-bottom: 24px;
@@ -465,20 +483,20 @@
       border-radius: 6px;
       width: fit-content;
     }
-    .card-level.free { background: rgba(74,222,128,0.1); color: #4ade80; }
-    .card-level.paid { background: rgba(79,124,255,0.12); color: var(--accent); }
-    .card-level.consult { background: rgba(245,200,66,0.1); color: var(--gold); }
- 
+    .card-level.free { background: var(--accent-soft); color: var(--accent); }
+    .card-level.paid { background: var(--gold-soft); color: var(--gold); }
+    .card-level.consult { background: rgba(16,24,43,0.06); color: var(--ink-soft); }
+
     .card-icon-num {
       position: absolute;
       top: 36px; right: 36px;
-      font-family: 'Syne', sans-serif;
+      font-family: 'Fraunces', serif;
       font-size: 3.5rem;
       font-weight: 800;
-      color: rgba(255,255,255,0.04);
+      color: rgba(16,24,43,0.05);
       line-height: 1;
     }
- 
+
     .servicio-card h3 {
       font-family: 'Outfit', sans-serif;
       font-size: 1.2rem;
@@ -486,46 +504,52 @@
       margin-bottom: 14px;
       line-height: 1.25;
       letter-spacing: -0.2px;
+      color: var(--ink);
     }
- 
+
     .servicio-card p {
       font-size: 0.95rem;
       font-weight: 400;
-      color: var(--muted2);
+      color: var(--ink-soft);
       line-height: 1.8;
       letter-spacing: 0.2px;
       flex: 1;
       margin-bottom: 32px;
     }
- 
+
     .card-cta {
       display: inline-flex; align-items: center; gap: 8px;
       font-size: 0.82rem;
-      font-weight: 500;
+      font-weight: 600;
       text-decoration: none;
-      color: var(--white);
-      border-bottom: 1px solid rgba(255,255,255,0.15);
+      color: var(--ink);
+      border-bottom: 1px solid rgba(16,24,43,0.18);
       padding-bottom: 3px;
       transition: all 0.2s;
       width: fit-content;
     }
-    .card-cta:hover { border-color: var(--white); gap: 12px; }
-    .card-cta.accent { color: var(--accent); border-color: rgba(79,124,255,0.3); }
+    .card-cta:hover { border-color: var(--ink); gap: 12px; }
+    .card-cta.accent { color: var(--accent); border-color: rgba(11,107,88,0.3); }
     .card-cta.accent:hover { border-color: var(--accent); }
- 
-    
+
+    /* CORPORATIVO (panel oscuro dentro de #servicios) */
     #corporativo {
-      background: var(--ink3);
-      border-top: 1px solid var(--line);
+      background: var(--navy);
+      color: rgba(255,255,255,0.85);
+      border-radius: 24px;
+      padding: 64px 56px;
+      margin-top: 64px;
     }
- 
+    #corporativo .section-label { color: var(--accent-bright); }
+
     .corp-inner {
       display: grid;
       grid-template-columns: 1fr 420px;
       gap: 80px;
       align-items: center;
     }
- 
+    @media (max-width: 768px) { #corporativo { padding: 44px 28px; border-radius: 18px; } }
+
     #corporativo h2 {
       font-size: clamp(1.8rem, 3vw, 2.6rem);
       font-family: 'Outfit', sans-serif;
@@ -533,64 +557,47 @@
       line-height: 1.15;
       margin-bottom: 20px;
       letter-spacing: -0.3px;
+      color: var(--white);
     }
-    #corporativo h2 em {
-      font-style: normal;
-      color: var(--accent);
-    }
- 
+    #corporativo h2 em { font-style: normal; color: var(--accent-bright); }
+
     #corporativo .corp-desc {
       font-size: 1.05rem;
       font-weight: 400;
-      color: var(--muted2);
+      color: rgba(255,255,255,0.65);
       line-height: 1.8;
       margin-bottom: 16px;
       max-width: 480px;
     }
-    #corporativo .corp-note {
-      font-size: 0.85rem;
-      color: var(--muted);
-      font-style: italic;
-    }
- 
+    #corporativo .corp-note { font-size: 0.85rem; color: rgba(255,255,255,0.4); font-style: italic; }
+
     .corp-pillars {
       display: flex; flex-direction: column;
       gap: 0;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: 16px;
       overflow: hidden;
     }
     .pillar {
       padding: 22px 24px;
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
       display: flex; gap: 16px; align-items: flex-start;
       transition: background 0.2s;
     }
     .pillar:last-child { border-bottom: none; }
-    .pillar:hover { background: rgba(255,255,255,0.03); }
+    .pillar:hover { background: rgba(255,255,255,0.04); }
     .pillar-num {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Fraunces', serif;
       font-size: 0.75rem;
       font-weight: 700;
-      color: var(--accent);
+      color: var(--accent-bright);
       width: 22px;
       flex-shrink: 0;
       padding-top: 2px;
     }
-    .pillar-content strong {
-      display: block;
-      font-size: 0.93rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-      color: var(--white);
-    }
-    .pillar-content span {
-      font-size: 0.875rem;
-      color: var(--muted2);
-      font-weight: 400;
-      line-height: 1.6;
-    }
- 
+    .pillar-content strong { display: block; font-size: 0.93rem; font-weight: 600; margin-bottom: 4px; color: var(--white); }
+    .pillar-content span { font-size: 0.875rem; color: rgba(255,255,255,0.62); font-weight: 400; line-height: 1.6; }
+
     .corp-cta-wrap { margin-top: 36px; }
     .btn-corp {
       display: inline-flex; align-items: center; gap: 10px;
@@ -601,58 +608,40 @@
       font-weight: 500;
       font-size: 0.9rem;
       text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.22);
       transition: all 0.25s;
     }
-    .btn-corp:hover {
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.5);
-      transform: translateY(-2px);
-    }
- 
-    
+    .btn-corp:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.5); transform: translateY(-2px); }
+
+    /* FOOTER */
     footer {
-      background: #060a14;
-      border-top: 1px solid var(--line);
+      background: var(--navy2);
+      border-top: 1px solid rgba(255,255,255,0.08);
       padding: 48px 6%;
     }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 24px;
-    }
-    .footer-left p {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.25);
-      margin-top: 6px;
-    }
-    .footer-left p strong { color: rgba(255,255,255,0.5); }
-    .footer-socials {
-      display: flex; gap: 12px;
-    }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    .footer-left .logo-mark { color: var(--white); font-size: 1.05rem; }
+    .footer-left .logo-mark span { color: var(--accent-bright); }
+    .footer-left p { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 8px; }
+    .footer-left p strong { color: var(--accent-bright); font-weight: 600; }
+    .footer-socials { display: flex; gap: 12px; }
     .footer-socials a {
       width: 38px; height: 38px;
       display: flex; align-items: center; justify-content: center;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(255,255,255,0.14);
       border-radius: 8px;
-      color: var(--muted);
+      color: rgba(255,255,255,0.55);
       text-decoration: none;
       font-size: 0.9rem;
       transition: all 0.2s;
     }
-    .footer-socials a:hover {
-      color: var(--white);
-      border-color: rgba(255,255,255,0.3);
-      background: rgba(255,255,255,0.04);
-    }
- 
-    
+    .footer-socials a:hover { color: var(--white); border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.06); }
+
+    /* MODAL */
     .modal-overlay {
       display: none;
       position: fixed; inset: 0;
-      background: rgba(6,10,20,0.9);
+      background: rgba(16,24,43,0.55);
       backdrop-filter: blur(8px);
       z-index: 9999;
       align-items: center; justify-content: center;
@@ -660,7 +649,7 @@
     }
     .modal-overlay.open { display: flex; }
     .modal-box {
-      background: #111828;
+      background: var(--paper-alt);
       border: 1px solid var(--line);
       border-radius: 20px;
       padding: 44px;
@@ -671,10 +660,11 @@
       position: relative;
       scrollbar-width: thin;
       scrollbar-color: var(--accent) transparent;
+      box-shadow: 0 30px 80px rgba(16,24,43,0.25);
     }
     .modal-box::before {
       content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
       background: linear-gradient(90deg, var(--accent), var(--gold));
       border-radius: 20px 20px 0 0;
     }
@@ -685,245 +675,101 @@
       cursor: pointer; transition: color 0.2s;
       margin: -8px -8px 0 0;
     }
-    .modal-close:hover { color: var(--white); }
-    #modalBody h2 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-    #modalBody .modal-subtitle {
-      color: var(--accent);
-      font-size: 0.9rem;
-      margin-bottom: 24px;
-      font-weight: 500;
-    }
+    .modal-close:hover { color: var(--ink); }
+    #modalBody h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 8px; color: var(--ink); }
+    #modalBody .modal-subtitle { color: var(--accent); font-size: 0.9rem; margin-bottom: 24px; font-weight: 600; }
     #modalBody .modal-intro {
-      font-size: 0.9rem;
-      color: var(--muted);
-      font-style: italic;
-      border-left: 2px solid var(--accent);
-      padding-left: 16px;
-      margin-bottom: 28px;
-      line-height: 1.7;
+      font-size: 0.9rem; color: var(--ink-soft); font-style: italic;
+      border-left: 2px solid var(--accent); padding-left: 16px; margin-bottom: 28px; line-height: 1.7;
     }
     #modalBody h4 {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 28px 0 12px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--line);
+      font-family: 'Outfit', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--muted); margin: 28px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
     }
     #modalBody ul { list-style: none; }
     #modalBody ul li {
-      font-size: 0.9rem;
-      color: var(--muted2);
-      padding: 9px 0 9px 20px;
-      border-bottom: 1px solid var(--line);
-      position: relative;
+      font-size: 0.9rem; color: var(--ink-soft); padding: 9px 0 9px 20px;
+      border-bottom: 1px solid var(--line); position: relative;
     }
-    #modalBody ul li::before {
-      content: '→';
-      position: absolute; left: 0;
-      color: var(--accent);
-    }
+    #modalBody ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
     #modalBody ul li:last-child { border-bottom: none; }
     #modalBody .modal-ideal {
-      background: rgba(79,124,255,0.07);
-      border: 1px solid rgba(79,124,255,0.2);
-      border-radius: 10px;
-      padding: 16px;
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin: 24px 0;
+      background: var(--accent-soft); border: 1px solid rgba(11,107,88,0.2);
+      border-radius: 10px; padding: 16px; font-size: 0.85rem; color: var(--ink-soft); margin: 24px 0;
     }
 
+    /* SOBRE MI */
     #sobre-mi {
-      background: var(--ink);
+      background: var(--paper);
       border-bottom: 1px solid var(--line);
       padding: 110px 6%;
       position: relative;
       overflow: hidden;
     }
-
-     #sobre-mi::before {
+    #sobre-mi::before {
       content: '';
-      position: absolute;
-      top: -120px; right: -80px;
+      position: absolute; top: -120px; right: -80px;
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(79,124,255,0.07) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(11,107,88,0.06) 0%, transparent 65%);
       pointer-events: none;
     }
- 
-    .sobre-mi-grid {
-      display: grid;
-      grid-template-columns: 380px 1fr;
-      gap: 80px;
-      align-items: start;
-      position: relative; z-index: 1;
-    }
 
-    .sobre-mi-foto-col {
-      display: flex;
-      flex-direction: column;
-      padding-top: 18px;
-    }
- 
-    .foto-frame {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      aspect-ratio: 4 / 5;
-      background: var(--ink2);
-    }
-   
-    
-    .foto-frame img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      transition: transform 0.6s ease;
-    }
+    .sobre-mi-grid { display: grid; grid-template-columns: 380px 1fr; gap: 80px; align-items: start; position: relative; z-index: 1; }
+    .sobre-mi-foto-col { display: flex; flex-direction: column; padding-top: 18px; }
+
+    .foto-frame { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 4 / 5; background: var(--paper-alt); border: 1px solid var(--line); }
+    .foto-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.6s ease; }
     .foto-frame:hover img { transform: scale(1.03); }
- 
-    .foto-frame::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--gold));
-    }
+    .foto-frame::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--gold)); }
 
-    .sobre-mi-content {
-      padding-top: 8px;
-    }
- 
+    .sobre-mi-content { padding-top: 8px; }
     .sobre-mi-content h2 {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 700;
-      font-size: clamp(1.9rem, 2.8vw, 2.6rem);
-      line-height: 1.15;
-      letter-spacing: -0.3px;
-      margin-bottom: 8px;
+      font-family: 'Outfit', sans-serif; font-weight: 700; font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+      line-height: 1.15; letter-spacing: -0.3px; margin-bottom: 8px; color: var(--ink);
     }
-    .sobre-mi-content h2 em {
-      font-style: normal;
-      color: var(--accent);
-    }
+    .sobre-mi-content h2 em { font-style: normal; color: var(--accent); }
 
     .sobre-tagline {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--gold);
-      margin-bottom: 28px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-size: 1rem; font-weight: 500; color: var(--gold); margin-bottom: 28px;
+      display: flex; align-items: center; gap: 10px;
     }
-    .sobre-tagline::before {
-      content: '';
-      display: block;
-      width: 28px; height: 1px;
-      background: var(--gold);
-      flex-shrink: 0;
-    }
+    .sobre-tagline::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
 
-    .sobre-body {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      margin-bottom: 40px;
-    }
-    .sobre-body p {
-      font-size: 1rem;
-      font-weight: 400;
-      color: var(--muted2);
-      line-height: 1.55;
-    }
-    .sobre-body p strong {
-      color: var(--white);
-      font-weight: 600;
-    }
+    .sobre-body { display: flex; flex-direction: column; gap: 18px; margin-bottom: 32px; }
+    .sobre-body p { font-size: 1rem; font-weight: 400; color: var(--ink-soft); line-height: 1.7; }
+    .sobre-body p strong { color: var(--ink); font-weight: 600; }
 
-    .sobre-expertise {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 40px;
-    }
+    .sobre-expertise { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
     .expertise-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
+      display: inline-flex; align-items: center; gap: 7px;
       padding: 8px 14px;
-      background: rgba(255,255,255,0.04);
+      background: var(--paper-alt);
       border: 1px solid var(--line);
       border-radius: 8px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--muted2);
+      font-size: 0.8rem; font-weight: 500; color: var(--ink-soft);
       transition: all 0.2s;
     }
-    .expertise-chip i {
-      font-size: 0.72rem;
-      color: var(--accent);
-    }
-    .expertise-chip:hover {
-      background: rgba(79,124,255,0.08);
-      border-color: rgba(79,124,255,0.3);
-      color: var(--white);
-    }
+    .expertise-chip i { font-size: 0.72rem; color: var(--accent); }
+    .expertise-chip:hover { background: var(--accent-soft); border-color: rgba(11,107,88,0.3); color: var(--ink); }
 
     .sobre-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-decoration: none;
-      padding-top: 32px;
-      border-top: 1px solid var(--line);
-      margin-top: 32px;
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 0.92rem; font-weight: 600; color: var(--accent);
+      text-decoration: none; padding-top: 32px; border-top: 1px solid var(--line); margin-top: 8px;
       transition: gap 0.2s, color 0.2s;
     }
     .sobre-cta .arrow { transition: transform 0.2s; }
-    .sobre-cta:hover { color: var(--white); }
+    .sobre-cta:hover { color: var(--ink); }
     .sobre-cta:hover .arrow { transform: translateX(5px); }
 
-    @media (max-width: 1024px) {
-      .sobre-mi-grid {
-        grid-template-columns: 300px 1fr;
-        gap: 48px;
-      }
-    }
+    @media (max-width: 1024px) { .sobre-mi-grid { grid-template-columns: 300px 1fr; gap: 48px; } }
     @media (max-width: 768px) {
-      .sobre-mi-grid {
-        grid-template-columns: 1fr;
-        gap: 36px;
-      }
-      .foto-frame {
-        aspect-ratio: 1 / 1;
-        max-width: 260px;
-        margin: 0 auto;
-      }
+      .sobre-mi-grid { grid-template-columns: 1fr; gap: 36px; }
+      .foto-frame { aspect-ratio: 1 / 1; max-width: 260px; margin: 0 auto; }
     }
 
-    
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeLeft {
-      from { opacity: 0; transform: translateX(24px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
- 
-    
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
     @media (max-width: 1024px) {
       .normadb-grid { grid-template-columns: 1fr; gap: 48px; }
       .corp-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -933,17 +779,13 @@
       section { padding: 80px 5%; }
       header { padding: 16px 5%; }
       .servicios-grid { grid-template-columns: 1fr; border-radius: 16px; }
-      .servicio-card { border-right: none; border-bottom: 1px solid var(--line); }
-      .servicio-card:last-child { border-bottom: none; }
       nav { display: none; }
       nav.open {
-        display: flex;
-        flex-direction: column;
+        display: flex; flex-direction: column;
         position: fixed; inset: 0;
-        background: var(--ink);
+        background: var(--paper);
         align-items: center; justify-content: center;
-        gap: 32px;
-        z-index: 999;
+        gap: 32px; z-index: 999;
       }
       nav.open a { font-size: 1.2rem; }
       .menu-toggle { display: block; position: relative; z-index: 1001; }
@@ -955,8 +797,7 @@
   </style>
 </head>
 <body>
- 
- 
+
 <header id="site-header">
   <div class="logo-mark">Irina <span>Ballesteros</span></div>
   <nav id="site-nav">
@@ -964,100 +805,120 @@
     <a href="#sobre-mi">Sobre mí</a>
     <a href="#normadb">NormaDB AI</a>
     <a href="#servicios">Servicios</a>
-    <a href="#corporativo">Corporativo</a>
-    <a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" class="nav-cta">Agendar llamada</a>
+    <a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" rel="noopener noreferrer" class="nav-cta">Agendar llamada</a>
   </nav>
   <button class="menu-toggle" id="menu-toggle" aria-label="Menú">
     <i class="fas fa-bars" id="menu-icon"></i>
   </button>
 </header>
- 
- 
+
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid-lines"></div>
- 
+  <div class="hero-seal" aria-hidden="true"></div>
+
   <div class="hero-inner">
-    <p class="hero-tag">Gestión & Transformación Empresarial</p>
- 
+    <p class="hero-tag"><i class="fas fa-circle-check"></i> Auditoría, Calidad y Gobierno de la Información</p>
+
     <h1 class="hero-h1 display">
-      Tu empresa crece.<br>
-      ¿Tus procesos <em>también</em>?
+      Tu empresa toma decisiones.<br>
+      ¿Puede <em>auditarlas</em>?
     </h1>
- 
+
     <p class="hero-sub">
-     Ayudo a empresas a ordenar sus procesos, fortalecer sus equipos y adoptar tecnología de forma práctica — para que el cambio no solo ocurra, sino que se mantenga.
+      Construyo la gobernanza que sostiene el crecimiento: procesos auditables, datos confiables y riesgos bajo control — con marcos internacionales, no con intuición.
     </p>
- 
+
     <div class="hero-actions">
       <a href="#servicios" class="btn-primary">
         Ver servicios <span class="arrow">→</span>
       </a>
       <a href="#normadb" class="btn-ghost">
-        Probar NormaDB AI gratis →
+        Auditar mis datos gratis →
       </a>
     </div>
+
+    <div class="hero-stat-row">
+      <div class="hero-stat">
+        <strong>10+ años</strong>
+        <span>liderando procesos bajo exigencia normativa</span>
+      </div>
+      <div class="hero-stat">
+        <strong>ISO 19011</strong>
+        <span>Auditora Interna certificada · Bureau Veritas</span>
+      </div>
+      <div class="hero-stat">
+        <strong>5 marcos</strong>
+        <span>de gobernanza en profundización activa</span>
+      </div>
+    </div>
   </div>
- 
- 
 </section>
- 
+
 <section id="sobre-mi">
   <div class="sobre-mi-grid">
- 
+
     <div class="sobre-mi-foto-col">
-      <div class="foto-frame">    
-         <img src="images/iri.jpeg" alt="Irina Ballesteros Ospino">  
-        </div>
+      <div class="foto-frame">
+        <img src="images/perfil.jpeg" alt="Irina Ballesteros Ospino">
+      </div>
     </div>
- 
+
     <div class="sobre-mi-content">
-      <p class="section-label">Sobre mí</p>
- 
-      <h2>Personas. Procesos. <em>Tecnología.</em></h2>
- 
-      <p class="sobre-tagline">Gestión y transformación empresarial con foco en lo que realmente sostiene el cambio.</p>
- 
+      <p class="section-label"><i class="fas fa-circle-check"></i> Sobre mí</p>
+
+      <h2>Estructura, evidencia y <em>gobernanza</em>.</h2>
+
+      <p class="sobre-tagline">Auditoría, calidad y gobierno de la información, aplicados con rigor técnico y sentido práctico.</p>
+
       <div class="sobre-body">
         <p>
           Soy Irina Ballesteros, Administradora de Empresas con <strong>más de 10 años de experiencia</strong> liderando procesos operativos en entornos de alta exigencia normativa.
         </p>
         <p>
-          He trabajado en estandarización de procesos bajo ISO 9001, optimización operativa, mejora continua y formación de equipos — ayudando a que los cambios no solo se implementen, sino que realmente se mantengan en el tiempo.
+          Soy <strong>Auditora Interna HSEQ certificada por Bureau Veritas</strong>, bajo los lineamientos de la norma ISO 19011, en los sistemas de gestión de Calidad (ISO 9001), Ambiental (ISO 14001) y Seguridad y Salud en el Trabajo (OHSAS 18001 / ISO 45001).
         </p>
         <p>
-          También fui tutora de Algoritmos y Programación en universidad, experiencia que reforzó una idea que hoy define mi enfoque: <strong>la tecnología solo genera valor cuando las personas logran comprenderla y adoptarla.</strong>
+          También fui tutora de Algoritmos y Programación en universidad — una experiencia que reforzó una idea que hoy define mi enfoque: <strong>un sistema de gestión solo funciona cuando las personas lo entienden y lo sostienen</strong>, no solo cuando queda documentado.
         </p>
         <p>
-          Actualmente finalizo mi Ingeniería de Software y desarrollo <strong>NormaDB AI</strong>, integrando mi experiencia en gestión empresarial con capacidades tecnológicas para calidad y gobernanza de datos.
+          Actualmente finalizo mi <strong>Ingeniería de Software (en curso)</strong> y desarrollo <strong>NormaDB AI</strong>, una herramienta que aplica gobierno de calidad de datos a archivos reales — uniendo mi experiencia en auditoría con capacidades técnicas de validación automatizada.
         </p>
         <p>
-          Creo en una transformación digital <strong>práctica, humana y sostenible</strong> — donde personas, procesos y tecnología trabajen alineados para que las empresas crezcan con mayor claridad, eficiencia y estructura.
+          Creo en una gobernanza que se puede <strong>auditar, no solo declarar</strong>: procesos con evidencia, datos confiables y riesgos gestionados con marcos reconocidos internacionalmente.
         </p>
       </div>
- 
+
+      <div class="sobre-expertise">
+        <span class="expertise-chip"><i class="fas fa-check"></i> Gobierno de TI</span>
+        <span class="expertise-chip"><i class="fas fa-check"></i> Gestión de Riesgos</span>
+        <span class="expertise-chip"><i class="fas fa-check"></i> Gobierno de Datos</span>
+        <span class="expertise-chip"><i class="fas fa-check"></i> Ciberseguridad — enfoque estratégico</span>
+        <span class="expertise-chip"><i class="fas fa-check"></i> COBIT 2019</span>
+        <span class="expertise-chip"><i class="fas fa-check"></i> ISO 31000</span>
+      </div>
+
       <a href="mailto:contacto@irinaballesteros.com" class="sobre-cta">
         contacto@irinaballesteros.com <span class="arrow">→</span>
       </a>
     </div>
- 
+
   </div>
 </section>
- 
+
 <section id="normadb">
   <div class="normadb-grid">
     <div class="normadb-content">
-      <p class="section-label">Herramienta gratuita</p>
- 
+      <p class="section-label"><i class="fas fa-circle-check"></i> Herramienta gratuita</p>
+
       <h2 class="heading">
-        ¿Cuántas <span> horas </span> pierdes
-        limpiando archivos antes de poder usarlos?
+        ¿Tus datos pasarían <span>una auditoría</span> hoy?
       </h2>
- 
+
       <p class="norma-sub">
-        NormaDB AI detecta y corrige errores en tus datos en segundos — para que tus reportes, nóminas y facturas salgan bien a la primera, sin revisión manual.
+        NormaDB AI detecta y corrige errores de calidad en tus datos en segundos — para que tus reportes, nóminas y facturas cumplan el primer control de gobierno de datos, sin revisión manual.
       </p>
- 
+
       <div class="norma-metrics">
         <div class="norma-metric">
           <strong>3</strong>
@@ -1072,19 +933,19 @@
           <span>Procesamiento</span>
         </div>
       </div>
- 
+
       <ul class="norma-features">
-        <li><i class="fas fa-check-circle"></i> Detecta errores antes de que lleguen a tus reportes o sistemas</li>
+        <li><i class="fas fa-check-circle"></i> Detecta errores antes de que comprometan tus reportes o decisiones</li>
         <li><i class="fas fa-check-circle"></i> Corrige fechas, IDs, emails y formatos automáticamente</li>
         <li><i class="fas fa-check-circle"></i> Compatible con tus archivos actuales: Excel, CSV, JSON, YAML</li>
         <li><i class="fas fa-check-circle"></i> Recibes un reporte claro con lo que falló y cómo se corrigió</li>
       </ul>
- 
-      <a href="https://normadbai-irinaballesterosospino.streamlit.app/" target="_blank" class="btn-norma">
+
+      <a href="https://normadbai-irinaballesterosospino.streamlit.app/" target="_blank" rel="noopener noreferrer" class="btn-norma">
         Analiza tu archivo gratis →
       </a>
     </div>
- 
+
     <div class="normadb-visual">
       <div class="normadb-mockup">
         <div class="mock-topbar">
@@ -1093,7 +954,7 @@
           <div class="mock-dot green"></div>
           <span class="mock-title">NormaDB_AI · Análisis en curso</span>
         </div>
- 
+
         <div class="mock-upload-zone">
           <div class="mock-upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
           <div class="mock-upload-text">
@@ -1107,7 +968,7 @@
             <span class="mock-format-tag">YAML</span>
           </div>
         </div>
- 
+
         <div class="mock-result-rows">
           <div class="mock-row">
             <div class="mock-status ok"></div>
@@ -1134,131 +995,118 @@
     </div>
   </div>
 </section>
- 
- 
+
 <section id="servicios">
   <div class="section-intro">
-    <p class="section-label">Servicios</p>
-    <h2 class="heading">
-      La forma más efectiva de comenzar es entender cómo fluye tu operación.
-    </h2>
-    <p class="sub">Tres puntos de entrada según el estado de tu empresa. Elige el que corresponde a tu momento.</p>
+    <p class="section-label"><i class="fas fa-circle-check"></i> Servicios</p>
+    <h2 class="heading">La gobernanza empieza por entender en qué punto está tu operación.</h2>
+    <p class="sub">Tres puntos de entrada según la madurez de tu gobernanza. Elige el que corresponde a tu momento.</p>
   </div>
- 
+
   <div class="servicios-grid">
- 
- 
+
     <article class="servicio-card">
       <span class="card-level free">Gratis · Disponible ahora</span>
       <span class="card-icon-num">01</span>
-      <h3 class="heading">¿Tus datos son confiables?</h3>
-      <p>Audita cualquier archivo en segundos. Identifica inconsistencias antes de tomar decisiones con información incorrecta.</p>
-      <a href="https://normadbai-irinaballesterosospino.streamlit.app/" target="_blank" class="card-cta accent">
+      <h3 class="heading">Gobierno de datos, en segundos.</h3>
+      <p>Audita cualquier archivo con NormaDB AI. Identifica inconsistencias antes de que comprometan una decisión o un reporte.</p>
+      <a href="https://normadbai-irinaballesterosospino.streamlit.app/" target="_blank" rel="noopener noreferrer" class="card-cta accent">
         Auditar mi archivo gratis →
       </a>
     </article>
- 
- 
+
     <article class="servicio-card featured">
       <span class="card-level paid">Diagnóstico · 10 minutos</span>
       <span class="card-icon-num">02</span>
-      <h3 class="heading">¿Qué tan lista está tu empresa para crecer?</h3>
-      <p>Evaluación de procesos y herramientas actuales. Obtienes un roadmap concreto, no una lista de recomendaciones genéricas.</p>
+      <h3 class="heading">¿Qué tan madura es tu gobernanza?</h3>
+      <p>Evaluación de procesos, riesgos y controles actuales. Obtienes un roadmap concreto de gobernanza — no una lista genérica de recomendaciones.</p>
       <a href="diagnostico.html" class="card-cta">
-        Hacer el test ahora →
+        Hacer el diagnóstico →
       </a>
     </article>
- 
- 
+
     <article class="servicio-card">
       <span class="card-level consult">Consultoría · Agendar sesión</span>
       <span class="card-icon-num">03</span>
-      <h3 class="heading">Rediseña cómo opera tu empresa.</h3>
-      <p>Mapeamos tus flujos reales, eliminamos cuellos de botella y capacitamos a tu equipo para que la transformación sea sostenible — no solo instalada.</p>
-      <a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" class="card-cta">
+      <h3 class="heading">Audita y gobierna tu operación.</h3>
+      <p>Mapeamos procesos, evaluamos riesgos y diseñamos controles bajo marcos como ISO 9001, COBIT e ISO 31000 — para que la gobernanza sea sostenible, no solo documentada.</p>
+      <a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" rel="noopener noreferrer" class="card-cta">
         Agendar diagnóstico estratégico →
       </a>
     </article>
- 
+
   </div>
-</section>
- 
- 
-<section id="corporativo">
-  <div class="corp-inner">
+
+  <div class="corp-inner" id="corporativo">
     <div class="corp-left">
-      <p class="section-label">Transformación corporativa</p>
+      <p class="section-label"><i class="fas fa-circle-check"></i> Acompañamiento mensual</p>
       <h2 class="heading">
-        Para empresas que ya decidieron <em>transformarse.</em>
+        Para empresas que ya decidieron <em>gobernar con evidencia.</em>
       </h2>
       <p class="corp-desc">
-        Acompañamiento mensual en transformación digital, mejora de procesos y formación de equipos. No solo implementamos metodologías — nos aseguramos de que tu equipo las adopte y las sostenga.
+        Acompañamiento mensual en auditoría, gestión de riesgos y gobierno de datos y TI. No solo entrego marcos — me aseguro de que tu organización los adopte y los sostenga.
       </p>
       <p class="corp-note">* Iniciamos con una sesión de diagnóstico. Sin compromisos previos.</p>
       <div class="corp-cta-wrap">
-        <a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" class="btn-corp">
+        <a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" rel="noopener noreferrer" class="btn-corp">
           <i class="fab fa-whatsapp"></i> Agendar llamada estratégica
         </a>
       </div>
     </div>
- 
+
     <div class="corp-pillars">
       <div class="pillar">
         <span class="pillar-num">01</span>
         <div class="pillar-content">
-          <strong>Optimización integral de procesos</strong>
-          <span>Rediseño de flujos, eliminación de cuellos de botella y mejora continua. Acompañamiento mensual.</span>
+          <strong>Auditoría & Calidad</strong>
+          <span>Auditorías internas y estandarización de procesos bajo ISO 9001. Identificación de brechas y planes de acción con evidencia.</span>
         </div>
       </div>
       <div class="pillar">
         <span class="pillar-num">02</span>
         <div class="pillar-content">
-          <strong>Formación en talento digital</strong>
-          <span>Capacitaciones para que tu equipo domine las nuevas metodologías y herramientas.</span>
+          <strong>Gobierno de Datos & Ciberseguridad</strong>
+          <span>Calidad y gobierno de datos aplicados con NormaDB AI, con enfoque estratégico en ciberseguridad y protección de la información.</span>
         </div>
       </div>
       <div class="pillar">
         <span class="pillar-num">03</span>
         <div class="pillar-content">
-          <strong>Gestión del cambio</strong>
-          <span>Mentoría para líderes. La tecnología no solo se instala — se adopta culturalmente.</span>
+          <strong>Gobierno de TI & Gestión de Riesgos</strong>
+          <span>Marcos como COBIT 2019, ISO 38500 e ISO 31000 para alinear tecnología, riesgo y objetivos del negocio.</span>
         </div>
       </div>
     </div>
   </div>
 </section>
- 
- 
+
 <footer>
   <div class="footer-inner">
     <div class="footer-left">
-      <div class="logo-mark" style="font-size:0.95rem;">Irina <span>Ballesteros</span></div>
-      <p>© 2026 <strong>Irina Ballesteros Ospino</strong> · Gestión & Transformación Empresarial</p>
+      <div class="logo-mark">Irina <span>Ballesteros</span></div>
+      <p>© 2026 <strong>Irina Ballesteros Ospino</strong> · Auditoría, Calidad y Gobierno de la Información</p>
     </div>
     <div class="footer-socials">
-      <a href="https://www.linkedin.com/in/irina-ballesteros" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://www.tiktok.com/@irinaballesterosospino" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.linkedin.com/in/irina-ballesteros" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.tiktok.com/@irinaballesterosospino" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
     </div>
   </div>
 </footer>
- 
- 
+
 <div class="modal-overlay" id="serviceModal">
   <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">×</button>
+    <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">×</button>
     <div id="modalBody"></div>
   </div>
 </div>
- 
+
 <script>
- 
   const header = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 40);
   });
- 
- 
+
   const menuBtn = document.getElementById('menu-toggle');
   const menuIcon = document.getElementById('menu-icon');
   const nav = document.getElementById('site-nav');
@@ -1272,35 +1120,34 @@
       menuIcon.className = 'fas fa-bars';
     });
   });
- 
- 
+
   const serviceDetails = {
     1: {
-      title: "Diagnóstico de Arquitectura y Eficiencia Operativa",
-      subtitle: "¿Tu operación es un activo que te permite escalar o un cuello de botella que te detiene?",
-      intro: "Diseño arquitecturas operativas robustas. Mi objetivo es transformar tu operación en un sistema escalable, trazable y listo para la nube. No solo corrijo procesos — construyo la base sobre la cual tu empresa podrá automatizar sin riesgos.",
+      title: "Diagnóstico de Madurez en Gobernanza y Riesgo",
+      subtitle: "¿Tu gobernanza es un sistema auditable o una intención documentada?",
+      intro: "Evalúo la madurez real de tus procesos, riesgos y controles de datos. El objetivo no es solo detectar fallas — es construir una hoja de ruta de gobernanza que tu organización pueda sostener y demostrar ante cualquier auditoría.",
       decisionTriggers: [
-        "Caos operativo: Lo que dice tu manual no coincide con la realidad del día a día.",
-        "Dependencia humana: El conocimiento vital reside en la memoria de pocos y no en procesos estructurados.",
-        "Fugas invisibles: Detectas ineficiencias, duplicidad de tareas o información poco confiable.",
-        "Preparación para el crecimiento: Necesitas estandarizar antes de migrar a la nube o automatizar flujos."
+        "Procesos sin evidencia: lo documentado no coincide con lo que realmente ocurre en la operación.",
+        "Riesgos sin dueño: identificas riesgos, pero no hay un marco claro para gestionarlos.",
+        "Datos poco confiables: tomas decisiones con información que nadie ha validado formalmente.",
+        "Preparación para crecer o certificarte: necesitas estructura antes de escalar o antes de una auditoría externa."
       ],
       scope: [
-        "Mapeo de flujos críticos y detección de cuellos de botella.",
-        "Validación de cómo fluye la información en tus sistemas (y dónde se pierde).",
-        "Evaluación técnica para asegurar que tus procesos sean aptos para automatización.",
-        "Identificación de tareas manuales que restan valor al negocio."
+        "Mapeo de procesos críticos y evaluación de controles existentes.",
+        "Identificación de riesgos operativos, de datos y tecnológicos.",
+        "Revisión de calidad y gobierno de la información disponible.",
+        "Evaluación de brechas frente a marcos como ISO 9001, COBIT e ISO 31000."
       ],
       deliverables: [
-        "Mapa de Arquitectura Operativa: visualización de procesos actuales y puntos de mejora.",
-        "Informe de Brechas (Gap Analysis): hallazgos entre tu estado actual y tu meta de escalabilidad.",
-        "Roadmap de Transformación: hoja de ruta priorizada para estandarizar y digitalizar."
+        "Informe de Madurez en Gobernanza: diagnóstico claro del estado actual.",
+        "Mapa de Riesgos priorizado, con impacto y probabilidad.",
+        "Roadmap de Gobernanza: hoja de ruta priorizada y realista."
       ],
-      idealFor: "Diseñado para líderes que entienden que no se puede digitalizar el caos. Primero ordenamos, luego escalamos.",
-      cta: `<a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" class="btn-primary" style="margin-top:8px;">Agendar sesión de diagnóstico →</a>`
+      idealFor: "Diseñado para líderes que entienden que la gobernanza no se declara — se construye, se audita y se sostiene.",
+      cta: `<a href="https://wa.me/message/C5ZES66757IMA1" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top:8px;">Agendar sesión de diagnóstico →</a>`
     }
   };
- 
+
   function openServiceDetail(id) {
     const s = serviceDetails[id];
     if (!s) return;
@@ -1320,12 +1167,12 @@
     document.getElementById('serviceModal').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
- 
+
   function closeModal() {
     document.getElementById('serviceModal').classList.remove('open');
     document.body.style.overflow = '';
   }
- 
+
   document.getElementById('serviceModal').addEventListener('click', function(e) {
     if (e.target === this) closeModal();
   });
